@@ -17,7 +17,7 @@ from django.contrib import admin
 # from django.urls import path
 # from django.views.generic import TemplateView
 from django.conf.urls import url
-from pinjianyuan.search.views import SearchSuggest, SearchView, IndexView
+from search.views import SearchSuggest, SearchView, IndexView
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
