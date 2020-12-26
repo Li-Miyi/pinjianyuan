@@ -1,7 +1,7 @@
 from django.db import models
 
 from elasticsearch_dsl import Document, Date, Nested, Boolean, \
-    analyzer, Completion, Keyword, Text, Integer
+    analyzer, Completion, Keyword, Text, Integer,Object,Long
 from elasticsearch_dsl.analysis import CustomAnalyzer as _CustomAnalyzer
 from elasticsearch_dsl.connections import connections
 
@@ -29,9 +29,33 @@ class PaperType(Document):
     paper_DOI = Text()
     paper_download_link = Text()
 
+    applicantAddress = Text(analyzer="ik_max_word")
+    applicantName = Text(analyzer="ik_max_word")
+    bjspName = Text(analyzer="ik_max_word")
+    bufaDate = Date()
+    changeDate = Date()
+    dateValid = Keyword()
+    expirationDate = Date()
+    naturalProgression = Text(analyzer="ik_max_word")
+    notargetPopulation = Keyword()
+    pizhunDate = Date()
+    productID = Keyword()
+    productIngredients = Object()
+    qianProductID = Keyword()
+    qianProductId = Text()
+    shourangAddress = Text(analyzer="ik_max_word")
+    shourangName = Text(analyzer="ik_max_word")
+    storageMethod = Text(analyzer="ik_max_word")
+    targetPopulation = Keyword()
+    useMethods = Text(analyzer="ik_max_word")
+    warning = Text(analyzer="ik_max_word")
+    zhuanrangAddress = Text(analyzer="ik_max_word")
+    zhuanrangChName = Text(analyzer="ik_max_word")
+    zhuanrangDate = Date()
+    zhuanrangEnName = Text(analyzer="ik_max_word")
+
     class Meta:
-        index = "baidu"
-        doc_type = "paper"
+        index = "gcc"
 
 
 if __name__ == "__main__":
