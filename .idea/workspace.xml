@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e126737a-c6c8-4745-8eaf-7b86f71b73a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$CACHE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/django_search.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/externalDependencies.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pinjianyuan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_search/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_search/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_search/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_search/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_search/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/advanced.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/result.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/btn_min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/btnbg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/inputbg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/line.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/ll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/logo1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/lr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/more.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/result_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/searchbtn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/global.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/pagination.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="9039e952a6d33d5432ec710fcbd2338a6398d7bc" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../大三下学期/检索/MoveSearch_v2-master" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration name="pinjianyuan" type="Python.DjangoServer" factoryName="Django server">
+      <module name="pinjianyuan" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="828" y="174" key="FileChooserDialogImpl" timestamp="1609010118668">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="828" y="174" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609010118668" />
+    <state width="934" height="382" key="GridCell.Tab.0.bottom" timestamp="1609010578354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="934" height="382" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state width="934" height="382" key="GridCell.Tab.0.center" timestamp="1609010578354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="934" height="382" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state width="934" height="382" key="GridCell.Tab.0.left" timestamp="1609010578354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="934" height="382" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state width="934" height="382" key="GridCell.Tab.0.right" timestamp="1609010578354">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="934" height="382" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+  </component>
+</project>
