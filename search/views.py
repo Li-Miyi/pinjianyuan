@@ -6,7 +6,7 @@ from django.views.generic.base import View
 from elasticsearch import Elasticsearch
 import redis
 
-from search.models import PaperType
+from pinjianyuan.search.models import PaperType
 
 client = Elasticsearch(hosts=["47.110.225.193:9200"],http_auth=('elastic', 'Pinjianyuan666'))
 
