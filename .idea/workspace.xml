@@ -21,43 +21,31 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/pinjianyuan" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf07e4f5-ec79-481b-be53-43f49751541e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pinjianyuan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pinjianyuan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PinjianyuanSearch/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PinjianyuanSearch/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="e126737a-c6c8-4745-8eaf-7b86f71b73a6" name="Default Changelist" comment="12-27" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="Li-Miyi &lt;986517357@qq.com&gt;" />
-        <option value="Li-Miyi" />
-        <option value="Li-Miyu" />
       </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="3c16ccd60e8926cca63837e679517cc8e45d9271" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="hiddenUrls">
-      <set>
-        <option value="https://github.com/Li-Miyi/pinjianyuan.git" />
-      </set>
-    </option>
-  </component>
-  <component name="ProjectId" id="1m9Dz7XC9ggxxV8frpV6XCEymFz" />
+  <component name="ProjectId" id="1mCw1eoKqW9DJprk2GT28aU4ufO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -66,82 +54,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../大三下学期/检索/MoveSearch_v2-master" />
     <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
   </component>
-  <component name="PyConsoleOptionsProvider">
-    <option name="myPythonConsoleState">
-      <console-settings is-module-sdk="true">
-        <option name="myUseModuleSdk" value="true" />
-      </console-settings>
-    </option>
-  </component>
-  <component name="RunManager" selected="Django Server.fenzhi">
-    <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
-      <module name="pinjianyuan" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="pinjianyuan" />
-      </envs>
-      <option name="SDK_HOME" value="E:\Anaconda\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="fenzhi" type="Python.DjangoServer" factoryName="Django server">
-      <module name="pinjianyuan" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="PinjianyuanSearch.settings" />
-      </envs>
-      <option name="SDK_HOME" value="D:\python\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="pinjianyuan" type="Python.DjangoServer" factoryName="Django server">
       <module name="pinjianyuan" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="PinjianyuanSearch.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -159,45 +84,27 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Django Server.pinjianyuan" />
-      <item itemvalue="Django Server.fenzhi" />
-      <item itemvalue="Django Server.Unnamed" />
-    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bf07e4f5-ec79-481b-be53-43f49751541e" name="Default Changelist" comment="" />
-      <created>1608897172559</created>
+      <changelist id="e126737a-c6c8-4745-8eaf-7b86f71b73a6" name="Default Changelist" comment="" />
+      <created>1609010666249</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608897172559</updated>
-      <workItem from="1608897175522" duration="706000" />
-      <workItem from="1608907615657" duration="665000" />
-      <workItem from="1608914172241" duration="185000" />
-      <workItem from="1608958618449" duration="6854000" />
-      <workItem from="1608998689197" duration="6819000" />
-      <workItem from="1609037296043" duration="817000" />
-      <workItem from="1609038310009" duration="1616000" />
+      <updated>1609010666249</updated>
+      <workItem from="1609010667804" duration="340000" />
     </task>
-    <task id="LOCAL-00001" summary="可以连接">
-      <created>1608897467892</created>
+    <task id="LOCAL-00001" summary="12-27">
+      <created>1609010780011</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1608897467892</updated>
+      <updated>1609010780011</updated>
     </task>
-    <task id="LOCAL-00002" summary="gcc model一部分">
-      <created>1608967590662</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1608967590662</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,7 +121,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/pinjianyuan" />
                       </list>
                     </value>
                   </entry>
@@ -228,64 +135,37 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="可以连接" />
-    <MESSAGE value="gcc model一部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="gcc model一部分" />
+    <MESSAGE value="12-27" />
+    <option name="LAST_COMMIT_MESSAGE" value="12-27" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="749" y="64" key="#Unnamed" timestamp="1608963312628">
+    <state x="372" y="0" key="CommitChangelistDialog2" timestamp="1609010852185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="749" y="64" key="#Unnamed/0.0.1536.824@0.0.1536.824" timestamp="1608963312628" />
-    <state x="305" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609038346844">
-      <screen x="0" y="0" width="1473" height="864" />
-    </state>
-    <state x="305" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1473.864@0.0.1473.864" timestamp="1609038346844" />
-    <state x="318" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1608963997942" />
-    <state x="669" y="0" key="CommitChangelistDialog2" timestamp="1608967589287">
+    <state x="372" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609010852185" />
+    <state x="828" y="174" key="FileChooserDialogImpl" timestamp="1609010118668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="669" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1608967589287" />
-    <state x="626" y="190" key="FileChooserDialogImpl" timestamp="1609038595649">
-      <screen x="0" y="0" width="1473" height="864" />
-    </state>
-    <state x="626" y="190" key="FileChooserDialogImpl/0.0.1473.864@0.0.1473.864" timestamp="1609038595649" />
-    <state x="653" y="181" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609000075714" />
-    <state width="1430" height="77" key="GridCell.Tab.0.bottom" timestamp="1609039338202">
-      <screen x="0" y="0" width="1473" height="864" />
-    </state>
-    <state width="1430" height="77" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1609039338202" />
-    <state width="723" height="364" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609001620310" />
-    <state width="1430" height="77" key="GridCell.Tab.0.center" timestamp="1609039338200">
-      <screen x="0" y="0" width="1473" height="864" />
-    </state>
-    <state width="1430" height="77" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1609039338200" />
-    <state width="723" height="364" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609001620310" />
-    <state width="1430" height="77" key="GridCell.Tab.0.left" timestamp="1609039338197">
-      <screen x="0" y="0" width="1473" height="864" />
-    </state>
-    <state width="1430" height="77" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1609039338197" />
-    <state width="723" height="364" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609001620310" />
-    <state width="1430" height="77" key="GridCell.Tab.0.right" timestamp="1609039338201">
-      <screen x="0" y="0" width="1473" height="864" />
-    </state>
-    <state width="1430" height="77" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1609039338201" />
-    <state width="723" height="364" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609001620310" />
-    <state x="162" y="75" key="SettingsEditor" timestamp="1608964050836">
+    <state x="828" y="174" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609010118668" />
+    <state width="934" height="382" key="GridCell.Tab.0.bottom" timestamp="1609010578354">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="162" y="75" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1608964050836" />
-    <state x="451" y="179" key="Vcs.Push.Dialog.v2" timestamp="1608967602967">
+    <state width="934" height="382" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state width="934" height="382" key="GridCell.Tab.0.center" timestamp="1609010578354">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="451" y="179" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1608967602967" />
-    <state x="10" y="135" width="702" height="624" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609002598304">
+    <state width="934" height="382" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state width="934" height="382" key="GridCell.Tab.0.left" timestamp="1609010578354">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="10" y="135" width="702" height="624" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1609002598304" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1609005453279">
+    <state width="934" height="382" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state width="934" height="382" key="GridCell.Tab.0.right" timestamp="1609010578354">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1609005453279" />
+    <state width="934" height="382" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1609010900858">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609010900858" />
   </component>
 </project>
