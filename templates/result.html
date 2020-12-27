@@ -3,22 +3,20 @@
 {% load static %}
 <head>
     <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="RuGuFalx9l" />
+    <meta name="baidu-site-verification" content="4YRgpZCO22" />
 
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?83f3606ac4a6e55ee8dab2cea4cc2ed0";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
+    <meta name="viewport"
+          content="width=device-width, inital-scale=1.0, maximum-scale=1.0, height=device-height,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Just Downlink">
-    <meta name="author" content="DONGFEI">
-    <meta name="keywords" content="Just Downlink">
-    <title>Just Downlink</title>
+
+    <meta name="description" content="品健源">
+{#    <meta name="author" content="品健源">#}
+    <meta name="keywords" content="品健源">
+    <title>品健源</title>
 
 
     {#    <!-- Favicon Icon -->#}
@@ -60,8 +58,8 @@
     
 
 </head>
-
 <body id="top" class="stickyfooter header-fixed">
+
 <div class="animsition">
     <div class="content">
         <header class="header-wrap no-transparent">
@@ -69,18 +67,8 @@
                 <div class="container clearfix">
                     <div class="pull-left">
                         <!-- Logo -->
-                        <a href="{% url 'index' %}" class="logo clearfix">DONGFEI</a>
-                    </div>
-                    <div class="pull-right">
-                        <!-- Menu Burger -->
-                        <a href="#" class="fullscreen-menu-toggle">
-                            <span>Menu</span>
-                            <i class="menu-bars">
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                            </i>
-                        </a>
+                        <a href="{% url 'index' %}" class="logo clearfix">品健源</a>
+                        <a href="http://127.0.0.1:8000//static/img/logo.png"></a>
                     </div>
 
                 </div>
@@ -101,10 +89,6 @@
             <div class="container">
                 <div class="aligner">
                     <div class="aligner-item page-title">
-
-                        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110
-                                src="//music.163.com/outchain/player?type=0&id=2133403770&auto=1&height=90"></iframe>
-
                         <h1>Just&nbsp;&nbsp;&nbsp;&nbsp;Downlink</h1>
                         <form class="form-wrapper cf">
                             <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"
@@ -148,13 +132,16 @@
                                         <h6 style="padding: 15px;background-color:#efefef;font-size:12px;text-indent: 24px; text-align: justify; word-break:break-all;"
                                             class="list-group-item-text list-group-item-info text-left text-lowercase">
                                             <br>保健食品名称：{% autoescape off %}{{ hit.bjspName }}{% endautoescape %}<br><br>
-{#                                            来源：{{ hit.source }}<br><br>#}
-{#                                            网站链接：<a style="color: #31708f;"#}
-{#                                                    href="{{ hit.url }}">{{ hit.url }}</a><br><br>#}
-{#                                            下载链接：<br><br>#}
-{#                                            {% autoescape off %}{{ hit.download_url }}{% endautoescape %}<br><br><br>#}
-{#                                            查询评分：{{ hit.score }}<br><br><br>#}
-{#                                            获取时间：{{ hit.crawl_time }}#}
+                                            批准文号：{{ hit.productID }}<br><br>
+                                            功效：{{ hit.naturalProgression }}<br><br>
+                                            原料：{{ hit.productIngredients }}<br><br>
+                                            适宜人群：{{ hit.targetPopulation }}<br><br>
+                                            不适宜人群：{{ hit.notargetPopulation }}<br><br>
+                                            使用方法：{{ hit.useMethods }}<br><br>
+                                            产品规格：{{ hit.productSpecifications }}<br><br>
+                                            保质期：{{ hit.dateValid }}<br><br>
+                                            生产商：{{ hit.applicantName }}<br><br>
+                                            厂商地址：{{ hit.applicantAddress }}
                                         </h6>
                                     </div>
                                 </article>
@@ -421,7 +408,8 @@
             MapSearchArr();
         }
 
-        window.location.href = search_url + '?q=' + val + "&s_type=" + $(".searchItem.current").attr('data-type')
+        {#window.location.href = search_url + '?q=' + val + "&s_type=" + $(".searchItem.current").attr('data-type')#}
+        window.location.href = search_url + '?q='
 
     }
 

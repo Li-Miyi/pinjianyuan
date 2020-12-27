@@ -198,16 +198,16 @@ class SearchView(View):
                 hit_dict["productID"] = hit["_source"]["productID"]
                 hit_dict["applicantName"] = hit["_source"]["applicantName"]
                 hit_dict["applicantAddress"] = hit["_source"]["applicantAddress"]
-                hit_dict["naturalProgression"] = hit["_score"]["naturalProgression"]
+                hit_dict["naturalProgression"] = hit["_source"]["naturalProgression"]
                 hit_dict["productIngredients"]=hit["_source"]["productIngredients"]
                 hit_dict["targetPopulation"] = hit["_source"]["targetPopulation"]
                 hit_dict["notargetPopulation"] = hit["_source"]["notargetPopulation"]
                 hit_dict["useMethods"] = hit["_source"]["useMethods"]
-                hit_dict["productSpecifications"] = hit["_score"]["productSpecifications"]
+                hit_dict["productSpecifications"] = hit["_source"]["productSpecifications"]
                 hit_dict["dateValid"] = hit["_source"]["dateValid"]
                 hit_dict["storageMethod"] = hit["_source"]["storageMethod"]
-                hit_dict["warning"] = hit["_score"]["warning"]
-                hit_dict["pizhunDate"] = hit["_score"]["pizhunDate"]
+                hit_dict["warning"] = hit["_source"]["warning"]
+                hit_dict["pizhunDate"] = hit["_source"]["pizhunDate"]
                 hit_list.append(hit_dict)
         end_time = datetime.now()
         last_seconds = (end_time - start_time).total_seconds()
