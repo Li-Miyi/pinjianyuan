@@ -57,6 +57,7 @@ class SearchSuggest(View):
 class SearchView(View):
     def get(self, request):
         key_words = request.GET.get("q", "")
+        key_index = request.GET.get("index","gcc").split(",")
         topn_search = redis_cli.zrevrangebyscore("search_keywords_set","+inf","-inf",start=0,num=5)
         # 搜索记录、热门搜索功能实现
         page = request.GET.get("p", "1")
@@ -68,66 +69,72 @@ class SearchView(View):
             page = 1
 
         start_time = datetime.now()
-        response = client.search(
-                index="gcc",
-                body={
-                    "query": {
-                        "multi_match": {
-                            "query": key_words,
-                            "fields": ["bjspName", "applicantName"]
-                        }
-                    },
-                    "from": (page - 1) * 10,
-                    "size": 10,
-                    "highlight": {
-                        "pre_tags": ["<span class='keyWord'>"],
-                        "post_tags": ["</span>"],
-                        "fields": {
-                            "bjspName": {},
-                            "applicantName": {},
+        hit_list = []
+        page_nums = 0
+        all_total_num = 0
+        for i in key_index:
+            """遍历索引然后查询"""
+            response = client.search(
+                    index=i,
+                    body={
+                        "query": {
+                            "query_string": {
+                                "query": key_words,
+                            }
+                        },
+                        "from": (page - 1) * 10,
+                        "size": 10,
+                        "highlight": {
+                            "pre_tags": ["<span class='keyWord'>"],
+                            "post_tags": ["</span>"],
+                            "fields": {
+                                "bjspName": {},
+                                "applicantName": {},
+                            }
                         }
                     }
-                }
-        )
+            )
+            total_nums = response["hits"]["total"]["value"]
+            all_total_num += total_nums
+            if (page % 10) > 0:
+                page_nums += int(total_nums / 10) + 1
+            else:
+                page_nums += int(total_nums / 10)
+
+            """
+            根据当前索引产生返回值，可能会有关于索引的判断逻辑"""
+            for hit in response["hits"]["hits"]:
+                hit_dict = {}
+                """
+                这里需要设置返回的数据"""
+                # if "title_detail" in hit["highlight"]:
+                #     hit_dict["title_detail"] = "".join(hit["highlight"]["title_detail"])
+                # else:
+                #     hit_dict["title_detail"] = hit["_source"]["title_detail"]
+                #
+                # if "title" in hit["highlight"]:
+                #     hit_dict["title"] = "".join(hit["highlight"]["title"])
+                # else:
+                #     hit_dict["title"] = hit["_source"]["title"]
+                #
+                # hit_dict["crawl_time"] = hit["_source"]["crawl_time"]
+                # hit_dict["url"] = hit["_source"]["url"]
+                # hit_dict["sourcename"] = hit["_source"]["sourcename"]
+                # hit_dict["download_url"] = hit["_source"]["download_url"]
+                # hit_dict["score"] = hit["_score"]
+
+                hit_list.append(hit_dict)
         end_time = datetime.now()
         last_seconds = (end_time - start_time).total_seconds()
-        total_nums = response["hits"]["total"]["value"]
 
-        if (page % 10) > 0:
-            page_nums = int(total_nums / 10) + 1
-        else:
-            page_nums = int(total_nums / 10)
 
-        hit_list = []
-        print(response)
-        for hit in response["hits"]["hits"]:
-            hit_dict = {}
-            """
-            这里需要设置返回的数据"""
-            # if "title_detail" in hit["highlight"]:
-            #     hit_dict["title_detail"] = "".join(hit["highlight"]["title_detail"])
-            # else:
-            #     hit_dict["title_detail"] = hit["_source"]["title_detail"]
-            #
-            # if "title" in hit["highlight"]:
-            #     hit_dict["title"] = "".join(hit["highlight"]["title"])
-            # else:
-            #     hit_dict["title"] = hit["_source"]["title"]
-            #
-            # hit_dict["crawl_time"] = hit["_source"]["crawl_time"]
-            # hit_dict["url"] = hit["_source"]["url"]
-            # hit_dict["sourcename"] = hit["_source"]["sourcename"]
-            # hit_dict["download_url"] = hit["_source"]["download_url"]
-            # hit_dict["score"] = hit["_score"]
-
-            hit_list.append(hit_dict)
         """
         返回给前端数，并且在前端需要设置显示效果"""
         return render(request, "result.html", {
             "page": page,
             "all_hits": hit_list,
             "key_words": key_words,
-            "total_nums": total_nums,
+            "total_nums": all_total_num,
             "page_nums": page_nums,
             "last_seconds": last_seconds,
             "topn_search": topn_search,

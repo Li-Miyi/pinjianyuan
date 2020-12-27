@@ -26,7 +26,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e126737a-c6c8-4745-8eaf-7b86f71b73a6" name="Default Changelist" comment="12-27" />
+    <list default="true" id="e126737a-c6c8-4745-8eaf-7b86f71b73a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mysearch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysearch/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,9 +57,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../大三下学期/检索/MoveSearch_v2-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
@@ -96,6 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609010666249</updated>
       <workItem from="1609010667804" duration="340000" />
+      <workItem from="1609039723431" duration="3347000" />
     </task>
     <task id="LOCAL-00001" summary="12-27">
       <created>1609010780011</created>
@@ -104,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609010780011</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="12-27 可以有数据了">
+      <created>1609039992318</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609039992318</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,33 +151,34 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12-27" />
-    <option name="LAST_COMMIT_MESSAGE" value="12-27" />
+    <MESSAGE value="12-27 可以有数据了" />
+    <option name="LAST_COMMIT_MESSAGE" value="12-27 可以有数据了" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="372" y="0" key="CommitChangelistDialog2" timestamp="1609010852185">
+    <state x="372" y="0" key="CommitChangelistDialog2" timestamp="1609039990768">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="372" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609010852185" />
+    <state x="372" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609039990768" />
     <state x="828" y="174" key="FileChooserDialogImpl" timestamp="1609010118668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="828" y="174" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609010118668" />
-    <state width="934" height="382" key="GridCell.Tab.0.bottom" timestamp="1609010578354">
+    <state width="1493" height="64" key="GridCell.Tab.0.bottom" timestamp="1609042027865">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="934" height="382" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
-    <state width="934" height="382" key="GridCell.Tab.0.center" timestamp="1609010578354">
+    <state width="1493" height="64" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609042027865" />
+    <state width="1493" height="64" key="GridCell.Tab.0.center" timestamp="1609042027864">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="934" height="382" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
-    <state width="934" height="382" key="GridCell.Tab.0.left" timestamp="1609010578354">
+    <state width="1493" height="64" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609042027864" />
+    <state width="1493" height="64" key="GridCell.Tab.0.left" timestamp="1609042027863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="934" height="382" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
-    <state width="934" height="382" key="GridCell.Tab.0.right" timestamp="1609010578354">
+    <state width="1493" height="64" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609042027863" />
+    <state width="1493" height="64" key="GridCell.Tab.0.right" timestamp="1609042027865">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="934" height="382" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609010578354" />
+    <state width="1493" height="64" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609042027865" />
     <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1609010900858">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
