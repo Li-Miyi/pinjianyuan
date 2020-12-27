@@ -82,14 +82,14 @@ WSGI_APPLICATION = 'PinjianyuanSearch.wsgi.application'
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jinasuo',
-        'USER':'root',
-        'PASSWORD':'711610',
-        'HOST':'127.0.0.1',
-        'PORT':'3306',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'jinasuo',
+    #     'USER':'root',
+    #     'PASSWORD':'711610',
+    #     'HOST':'127.0.0.1',
+    #     'PORT':'3306',
+    # }
 }
 
 
