@@ -56,8 +56,21 @@ class SearchSuggest(View):
 
 class SearchView(View):
     def get(self, request):
-        key_words = request.GET.get("q", "")
+        """
+        key_words 关键词
+        key_index 检索的索引
+        type 搜索类型 mohu：模糊搜索 jingque 精确搜索 gaoji:高级高级搜索 quick:快速搜点，点击首页超链接
+        高级搜索的关键词参数形式
+        must=字段1,字段2&should=字段3,字段4&must_not=字段1,字段2&字段1=key&字段2=key等等&jingque=字段1,字段2
+        must必有,should并含,must_not不含,jingque需要精确搜索的字段
+        宽肃搜索的关键词参数形式
+        key=关键词&field=字段名
+        """
         key_index = request.GET.get("index","gcc").split(",")
+        type = request.GET.get("search_type","mohu")
+        #模糊与精确的关键词
+        key_words = request.GET.get("q", "")
+
         topn_search = redis_cli.zrevrangebyscore("search_keywords_set","+inf","-inf",start=0,num=5)
         # 搜索记录、热门搜索功能实现
         page = request.GET.get("p", "1")
@@ -74,9 +87,70 @@ class SearchView(View):
         all_total_num = 0
         for i in key_index:
             """遍历索引然后查询"""
-            response = client.search(
-                    index=i,
-                    body={
+            if type == "jingque":
+                body = {
+                            "query": {
+                                "query_string": {
+                                    "query": key_words,
+                                    "default_operator": "AND"
+                                }
+                            },
+                            "from": (page - 1) * 10,
+                            "size": 10,
+                            "highlight": {
+                                "pre_tags": ["<span class='keyWord'>"],
+                                "post_tags": ["</span>"],
+                                "fields": {
+                                    "bjspName": {},
+                                    "applicantName": {},
+                                }
+                            }
+                        }
+            elif type == "gaoji":
+                jingque_list = request.GET.get("jingque").split(',')
+                def get_key_list(tiaojian):
+                    key_list=[]
+                    for i in request.GET.get(tiaojian).split(','):
+                        if i in jingque_list:
+                            word = request.GET.get(i)
+                            key_dict = {
+                                "match": {
+                                    i:{
+                                        "query":word,
+                                        "operator": "AND"
+                                    }
+                                }
+                            }
+                        else:
+                            key_dict = {"match": {i: request.GET.get(i)}}
+                        key_list.append(key_dict)
+                    return key_list
+                must_key = get_key_list("must")
+                should_key = get_key_list("should")
+                must_not_key = get_key_list("must_not")
+                body={
+                    "query": {
+                        "bool": {
+                            "must":must_key,
+                            "should": should_key,
+                            "must_not": must_not_key
+                        }
+                    }
+                }
+            elif type == "quick":
+                # 快速的关键词
+                key = request.GET.get("key","")
+                field = request.GET.get("field","")
+                body={
+                  "query": {
+                    "match": {
+                      key: field
+                    }
+                  }
+                }
+
+            else:
+                body={
                         "query": {
                             "query_string": {
                                 "query": key_words,
@@ -93,6 +167,9 @@ class SearchView(View):
                             }
                         }
                     }
+            response = client.search(
+                index=i,
+                body=body
             )
             total_nums = response["hits"]["total"]["value"]
             all_total_num += total_nums
@@ -122,7 +199,6 @@ class SearchView(View):
                 # hit_dict["sourcename"] = hit["_source"]["sourcename"]
                 # hit_dict["download_url"] = hit["_source"]["download_url"]
                 # hit_dict["score"] = hit["_score"]
-
                 hit_list.append(hit_dict)
         end_time = datetime.now()
         last_seconds = (end_time - start_time).total_seconds()
