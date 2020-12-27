@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
-from Mysearch.views import SearchSuggest, SearchView
+from Mysearch.views import SearchSuggest, SearchView,Facet
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
@@ -32,6 +32,8 @@ urlpatterns = [
 
     url(r'^suggest/$', SearchSuggest.as_view(), name="suggest"),
     url(r'^search/$', SearchView.as_view(), name="search"),
+    #分面搜索
+    url(r'^facet/$', Facet, name="facet"),
 
 ]
 
