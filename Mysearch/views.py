@@ -31,7 +31,7 @@ class SearchSuggest(View):
 
         if key_words:
             response = client.search(
-                index='movie',
+                index='gcc',
                 body={
                     "suggest": {
                         "my_suggest": {
@@ -193,12 +193,21 @@ class SearchView(View):
                 #     hit_dict["title"] = "".join(hit["highlight"]["title"])
                 # else:
                 #     hit_dict["title"] = hit["_source"]["title"]
-                #
-                # hit_dict["crawl_time"] = hit["_source"]["crawl_time"]
-                # hit_dict["url"] = hit["_source"]["url"]
-                # hit_dict["sourcename"] = hit["_source"]["sourcename"]
-                # hit_dict["download_url"] = hit["_source"]["download_url"]
-                # hit_dict["score"] = hit["_score"]
+
+                hit_dict["bjspName"]=hit["_source"]["bjspName"]
+                hit_dict["productID"] = hit["_source"]["productID"]
+                hit_dict["applicantName"] = hit["_source"]["applicantName"]
+                hit_dict["applicantAddress"] = hit["_source"]["applicantAddress"]
+                hit_dict["naturalProgression"] = hit["_score"]["naturalProgression"]
+                hit_dict["productIngredients"]=hit["_source"]["productIngredients"]
+                hit_dict["targetPopulation"] = hit["_source"]["targetPopulation"]
+                hit_dict["notargetPopulation"] = hit["_source"]["notargetPopulation"]
+                hit_dict["useMethods"] = hit["_source"]["useMethods"]
+                hit_dict["productSpecifications"] = hit["_score"]["productSpecifications"]
+                hit_dict["dateValid"] = hit["_source"]["dateValid"]
+                hit_dict["storageMethod"] = hit["_source"]["storageMethod"]
+                hit_dict["warning"] = hit["_score"]["warning"]
+                hit_dict["pizhunDate"] = hit["_score"]["pizhunDate"]
                 hit_list.append(hit_dict)
         end_time = datetime.now()
         last_seconds = (end_time - start_time).total_seconds()

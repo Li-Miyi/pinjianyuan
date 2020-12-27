@@ -13,10 +13,10 @@
     <meta name="format-detection" content="telephone=no">
 
 
-    <meta name="description" content="Just Downlink">
-    <meta name="author" content="DONGFEI">
-    <meta name="keywords" content="Just Downlink">
-    <title>Just Downlink</title>
+    <meta name="description" content="品健源">
+{#    <meta name="author" content="品健源">#}
+    <meta name="keywords" content="品健源">
+    <title>品健源</title>
 
     {#    <!-- Favicon Icon -->#}
     {#    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">#}
@@ -29,7 +29,7 @@
 
 
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/img/favicon.ico"
+    <link rel="shortcut icon" href="http://127.0.0.1:8000//static/img/logo.png"
           type="image/x-icon">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/css/bootstrap.css">
@@ -67,19 +67,20 @@
                 <div class="container clearfix">
                     <div class="pull-left">
                         <!-- Logo -->
-                        <a href="{% url 'index' %}" class="logo clearfix">DONGFEI</a>
+                        <a href="{% url 'index' %}" class="logo clearfix">品健源</a>
+                        <a href="http://127.0.0.1:8000//static/img/logo.png"></a>
                     </div>
-                    <div class="pull-right">
-                        <!-- Menu Burger -->
-                        <a href="#" class="fullscreen-menu-toggle">
-                            <span>Menu</span>
-                            <i class="menu-bars">
-                                <i></i>
-                                <i></i>
-                                <i></i>
-                            </i>
-                        </a>
-                    </div>
+{#                    <div class="pull-right">#}
+{#                        <!-- Menu Burger -->#}
+{#                        <a href="#" class="fullscreen-menu-toggle">#}
+{#                            <span>Menu</span>#}
+{#                            <i class="menu-bars">#}
+{#                                <i></i>#}
+{#                                <i></i>#}
+{#                                <i></i>#}
+{#                            </i>#}
+{#                        </a>#}
+{#                    </div>#}
 
                 </div>
             </div>
@@ -97,17 +98,20 @@
         <!-- End fullscreen-navigation -->
         {#        <section class="jarallax" style="background-image: url({% static 'img/bg/08.png' %});">#}
         <section class="jarallax"
-                 style="background-image: url('http://dongfei.oss-cn-shanghai.aliyuncs.com/static/img/bg/08.png');">
+                 style="background-image: url('http://127.0.0.1:8000/static/img/logo.png')"
+                 style="background-size: 50% 50%;">
+{#                 style="background-size: 10% 10%;"#}
+{#                 style="background-position: top">#}
 
 
             <div class="container">
                 <div class="aligner">
                     <div class="aligner-item page-title">
+{##}
+{#                        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110#}
+{#                                src="//music.163.com/outchain/player?type=0&id=2133403770&auto=1&height=90"></iframe>#}
 
-                        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110
-                                src="//music.163.com/outchain/player?type=0&id=2133403770&auto=1&height=90"></iframe>
-
-                        <h1>Just&nbsp;&nbsp;Downlink</h1>
+                        <h1>品健源</h1>
                         <form class="form-wrapper cf">
                             <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"
                                    placeholder="Search here ...">
@@ -121,106 +125,16 @@
                                 {#                                <a href="#" class="list-group-item text-left">Vestibulum at eros</a>#}
                             </div>
                         </form>
-
-                        <p>Creative Digital Agency</p>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End section -->
-        <main>
-            <!-- Count To -->
-            <section class="section mt blog-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="counter-item text-center">
-                                <div class="end-value">
-                                    <i>180</i>
-                                    <span>W+</span>
-                                </div>
-                                <h6>TOP SEARCH</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="counter-item text-center">
-                                <div class="end-value">
-                                    <i>13</i>
-                                    <span>W+</span>
-                                </div>
-                                <h6>HOT MOVIES</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="counter-item text-center">
-                                <div class="end-value">
-                                    <i>17</i>
-                                    <span>+</span>
-                                </div>
-                                <h6>WEBSITE PROJECTS </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <a href="#top" class="scroll-top scroll-top-hidden">
-            <i class="fa fa-angle-up"></i>
-        </a>
-        <!-- End scroll-top -->
-
-
     </div>
-    <!-- End content -->
-    <footer>
-        <div class="footer">
-            <div class="container">
-                <div class="text-center">
-                    <!-- Footer Logo Text -->
-                    <div class="footer-socials">
-                        <a href="https://www.facebook.com/profile.php?id=100012742063569" data-toggle="tooltip"
-                           data-placement="top" title="facebook">
-                            <i class="fa fa-fw fa-facebook"></i>
-                        </a>
-                        <a href="https://twitter.com/iamdongfei" data-toggle="tooltip" data-placement="top"
-                           title="twitter">
-                            <i class="fa fa-fw fa-twitter"></i>
-                        </a>
-                        <a href="https://plus.google.com/105235638425183033744" data-toggle="tooltip"
-                           data-placement="top" title="google plus">
-                            <i class="fa fa-fw fa-google-plus"></i>
-                        </a>
-                        <a href="http://blog.dongfei.xin/atom.xml" data-toggle="tooltip" data-placement="top"
-                           title="rss">
-                            <i class="fa fa-fw fa-rss"></i>
-                        </a>
-                    </div>
-                    <!-- End socials -->
-                    <!-- End footer-menu -->
-
-                    <p class="copy">
-                        Copyright &copy; 2018.Company name All rights reserved . <a target="_blank"
-                                                                                    href="http://blog.dongfei.xin/">Dongfei</a>
-
-                        <br><h6>备案号：苏ICP备17072109号</h6>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
 </div>
 </body>
 
 
-<!-- End animsition -->
-{#<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/libs.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/main.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/script.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/search/jquery.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/search/global.js' %}"></script>#}
-<!-- Custom -->
+
 
 <script type="text/javascript"
         src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/jquery-1.12.4.min.js"></script>
@@ -235,11 +149,6 @@
     var search_url = "{% url 'search' %}"
     var suggest_url = "{% url 'suggest' %}"
 
-    {#    $(".searchInput").keydown(function (e) {#}
-    {#        var val = $(".searchInput").val();#}
-    {#        window.location.href = search_url + '?q=' + val + "&s_type=dy2018"#}
-    {#    });#}
-
     function removeByValue(arr, val) {
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] == val) {
@@ -249,11 +158,11 @@
         }
     }
 
-
     // 搜索建议
     $(function () {
         $('.searchInput').bind(' input propertychange ', function () {
             var searchText = $(this).val();
+            print(searchText)
             var tmpHtml = ""
             $.ajax({
                 cache: false,
@@ -302,7 +211,7 @@
             //然后再把搜索内容显示出来
             MapSearchArr();
         }
-        window.location.href = search_url + '?q=' + val + "&s_type=dy2018"
+        window.location.href = search_url + '?q=' + val
     }
 
     function MapSearchArr() {
