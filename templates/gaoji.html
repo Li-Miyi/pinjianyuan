@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US">
+{% load static %}
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>品健源</title>
+<meta name="keywords" content="品健源首页">
+<meta name="description" content="模糊搜索等">
+<meta name="author" content="保温杯里泡枸杞">
+    <!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+<!-- Responsive-->
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css'%}">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="{% static 'css/font-awesome.css'%}">
+<!-- owl stylesheets -->
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+<link rel="stylesoeet" href="{% static 'css/owl.theme.default.min.css'%}">
+<link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css'%}" media="screen">
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?83f3606ac4a6e55ee8dab2cea4cc2ed0";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+	<!-- header section start-->
+	<nav class="top">
+{#        <a class="logo" href="#"><img src="images/logo.png"></a>#}
+{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#}
+{#        <span class="navbar-toggler-icon"></span>#}
+{#        </button>#}
+{#        <div class="collapse navbar-collapse" id="navbarNav">#}
+{#            <ul class="navbar-nav">#}
+{#                <li class="nav-item">#}
+{#                   <a class="nav-link" href="index.html">HOME</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                   <a class="nav-link" href="search jobs.html">SEARCH JOBS</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                   <a class="nav-link" href="recurments.html">RECRUITERS</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                   <a class="nav-link" href="companies.html">COMPANIES</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                   <a class="nav-link" href="services.html">SERVICES</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                   <a class="nav-link" href="#">MORE</a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#         <div class="login_text"><a href="login.html">LOGIN HERE</a></div>#}
+    </nav>
+	<!-- header section start-->
+	<!-- banner section start-->
+	<div class="banner_section layout_padding">
+		<div class="container">
+			<div align="center"><img class="lo" src="{% static 'images/lo.png'%}"></div>
+			<div class="box_main">
+                <div class="selecbtn_null"></div>
+                <select class="selecbtn2">
+                    <option value ="gcc">中文名称</option>
+                    <option value ="jkkk">英文名称</option>
+                    <option value ="rawmaterial">批准文号</option>
+                    <option value ="ingredients">保健功能</option>
+                    <option value ="nutrients">适宜人群</option>
+                    <option value ="other_nutrients">不适宜人群</option>
+					<option value ="regulations2">配料</option>
+					<option value ="buying_guides">申请人名称</option>
+                    <option value ="buying_guides">申请人地址</option>
+				</select>
+                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
+                                   placeholder="请输入 ...">
+				<select class="selecbtn" id="type">
+					<option value ="mohu">模糊搜索</option>
+					<option value ="jingque">精确搜索</option>
+				</select>
+		    </div>
+            <div class="box_main">
+                <select class="selecbtn">
+					<option value ="mohu">AND</option>
+					<option value ="jingque">OR</option>
+                    <option value ="jingque">NOT</option>
+				</select>
+                <select class="selecbtn2">
+                    <option value ="gcc">中文名称</option>
+                    <option value ="jkkk">英文名称</option>
+                    <option value ="rawmaterial">批准文号</option>
+                    <option value ="ingredients">保健功能</option>
+                    <option value ="nutrients">适宜人群</option>
+                    <option value ="other_nutrients">不适宜人群</option>
+					<option value ="regulations2">配料</option>
+					<option value ="buying_guides">申请人名称</option>
+                    <option value ="buying_guides">申请人地址</option>
+				</select>
+                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
+                                   placeholder="请输入 ...">
+				<select class="selecbtn" id="type">
+					<option value ="mohu">模糊搜索</option>
+					<option value ="jingque">精确搜索</option>
+				</select>
+		    </div>
+            <div class="box_main">
+                <select class="selecbtn">
+					<option value ="mohu">AND</option>
+					<option value ="jingque">OR</option>
+                    <option value ="jingque">NOT</option>
+				</select>
+                <select class="selecbtn2">
+                    <option value ="gcc">中文名称</option>
+                    <option value ="jkkk">英文名称</option>
+                    <option value ="rawmaterial">批准文号</option>
+                    <option value ="ingredients">保健功能</option>
+                    <option value ="nutrients">适宜人群</option>
+                    <option value ="other_nutrients">不适宜人群</option>
+					<option value ="regulations2">配料</option>
+					<option value ="buying_guides">申请人名称</option>
+                    <option value ="buying_guides">申请人地址</option>
+				</select>
+                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
+                                   placeholder="请输入 ...">
+				<select class="selecbtn" id="type">
+					<option value ="mohu">模糊搜索</option>
+					<option value ="jingque">精确搜索</option>
+				</select>
+		    </div>
+		    <div class="bt_main">
+		    	<div class="discover_bt" onclick="add_search()"><a href="#">检&nbsp索</a></div>
+		    </div>
+		</div>
+	</div>
+	<!-- banner section end-->
+    <script type="text/javascript"
+        src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/libs.js"></script>
+<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/main.js"></script>
+<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/script.js"></script>
+<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/jquery.js"></script>
+<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/global.js"></script>
+    <!-- Javascript files-->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js'%}"></script>
+    <script src="{% static 'js/plugin.js'%}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js'%}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>
+{#      <script>#}
+{#      $(document).ready(function(){#}
+{#      $(".fancybox").fancybox({#}
+{#         openEffect: "none",#}
+{#         closeEffect: "none"#}
+{#         });#}
+{#         </script>#}
+    <script type="text/javascript">
+        var search_url = "{% url 'search' %}"
+
+        function MapSearchArr() {
+        var tmpHtml = "";
+        var arrLen = 0
+        if (searchArr.length >= 5) {
+            arrLen = 5
+        } else {
+            arrLen = searchArr.length
+        }
+        for (var i = 0; i < arrLen; i++) {
+            tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + searchArr[i] + '">' + searchArr[i] + '</a>'
+        }
+        $(".mysearch").html(tmpHtml);
+    }
+
+        //去重
+        function KillRepeat(keyword) {
+            var kill = 0;
+            for (var i = 0; i < searchArr.length; i++) {
+                if (keyword === searchArr[i]) {
+                    kill++;
+                }
+            }
+            if (kill < 1) {
+                searchArr.unshift(keyword);
+            } else {
+                removeByValue(searchArr, keyword)
+                searchArr.unshift(keyword)
+            }
+        }
+
+        var searchArr; //定义一个search的，判断浏览器有无数据存储（搜索历史）
+        if (localStorage.search) {
+        //如果有，转换成 数组的形式存放到searchArr的数组里（localStorage以字符串的形式存储，所以要把它转换成数组的形式）
+        searchArr = localStorage.search.split(",")
+        } else {
+        //如果没有，则定义searchArr为一个空的数组
+        searchArr = [];
+        //把存储的数据显示出来作为搜索历史
+        MapSearchArr();
+        }
+
+        {#function add_search() {#}
+        {#    var keyword = $(".searchInput").val();#}
+        {#    var index = $("#index").val();#}
+        {#    var type = $("#type").val();#}
+        {#    if (keyword.length >= 2) {#}
+        {#        //点击搜索按钮时，去重#}
+        {#        KillRepeat(keyword);#}
+        {#        //去重后把数组存储到浏览器localStorage#}
+        {#        localStorage.search = searchArr;#}
+        {#        //然后再把搜索内容显示出来#}
+        {#        MapSearchArr();#}
+        {#    }#}
+            {#window.location.href = search_url+'?q=a'+keyword#}
+        {#    window.location.href = search_url+'?q='+keyword#}
+    function add_search() {
+        var val = $(".searchInput").val();
+        var index = $("select:first").val();
+        var search_type = $("select:last").val();
+        if (val.length >= 2) {
+            //点击搜索按钮时，去重
+            {#KillRepeat(val);#}
+            //去重后把数组存储到浏览器localStorage
+            localStorage.search = searchArr;
+            //然后再把搜索内容显示出来
+            MapSearchArr();
+        }
+        window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index
+    }
+    </script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+</body>
+</html>
