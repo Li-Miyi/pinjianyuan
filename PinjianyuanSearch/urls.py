@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import path
 from django.views.generic import TemplateView
+
+from Mysearch import views
 from Mysearch.views import SearchSuggest, SearchView, Facet, Gaoji
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -34,9 +37,10 @@ urlpatterns = [
     url(r'^search/$', SearchView.as_view(), name="search"),
     #分面搜索
     url(r'^facet/$', Facet, name="facet"),
+    path('facet_menu/', views.facet_menu, name="facet_menu"),
     #高级搜索
-        url(r'^gaoji/$', Gaoji, name="gaoji"),
-
+    url(r'^gaoji/$', Gaoji, name="gaoji"),
+    path('base/', views.base, name="base"),
 
 ]
 

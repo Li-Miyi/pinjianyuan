@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<title>品健源</title>
+
+<!-- Meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+
+<!-- Google Font -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet"> -->
+
+<!-- FontAwesome JS-->
+<!-- <script defer src="../static/assets/fontawesome/js/all.min.js"></script> -->
+
+<!-- Theme CSS -->  
+<!-- <link id="theme-style" rel="stylesheet" href="../static/assets/css/theme.css"> -->
+<link id="theme-style" rel="stylesheet" href="../static/assets/css/seach.css">
+<link rel="stylesheet" href="../static/assets/css/layui.css">
+
+
+
+
+</head> 
+
+
+
+<body style = "background-image: url('../static/assets/images/background.png'); z-index:0;">
+
+	<header class="header fixed-top">	    
+		<div class="branding docs-branding">
+		</div>
+	</header>
+
+	<!-- 搜索框 -->
+	<div style="text-align: center; margin-left:33%;">
+		<div style=" width:1px; height:1px; margin-left: 0;float: left;">
+			<img src="../static/assets/images/logo.png" width="192" height="108">
+		</div>
+		<div class="box_main" style="float: left; margin-left:200px;">
+			<input type="" class="email_bt" placeholder="请输入关键词" name="">
+			<button class="subscribe_bt"><a href="#"><img class="searchimg" src="../static/assets/images/search.png"></a></button>
+		</div>
+	</div>
+	
+	<!-- 主体内容 -->
+	<div style="margin-top:22px;">
+		<!-- 索引目录 -->
+		<div class="index_menu">
+			<ul class="layui-nav layui-bg-blue" style="text-align: center;">
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'gcc');">国产保健食品</a></li>
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'jkkk');">进口保健食品</a></li>
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'rawmaterial');">原料</a></li>
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'ingredients');">辅料</a></li>
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'nutrients');">营养素补充剂</a></li>
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'other_ingredient');">其他功效成分</a></li>
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'buying_guides');">选购指南</a></li>
+				<li class="layui-nav-item"><a href="javascript:;" onclick="get_facet_menu(this,'regulations2');">法律法规</a></li>
+			</ul>
+		</div>
+
+		<!-- 分面 + 搜索结果 -->
+		<div class="facet_result">
+			<!-- 分面 -->
+			<div class="facet" id="fecet_menu">
+				<ul class="layui-nav layui-nav-tree" lay-filter="test" id="gc1" >
+					<li class="layui-nav-item" id="0">
+					  <a class="" href="javascript:;" id="a0"></a>
+					  <dl class="layui-nav-child">
+						<dd><a href="javascript:;"><input type="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;移动模块</a></dd>
+						<dd><a href="javascript:;">电商平台</a></dd>
+						<dd><a href="javascript:;">跳转菜单</a></dd>
+					  </dl>
+					</li>
+					<li class="layui-nav-item" id="1">
+					  <a href="javascript:;" id="a1"></a>
+					  <dl class="layui-nav-child">
+						<dd><a href="javascript:;">移动模块</a></dd>
+						<dd>
+						  <a href="javascript:;">后台模版</a>
+						</dd>
+						<dd><a href="">电商平台</a></dd>
+					  </dl>
+					</li>
+					<li class="layui-nav-item" id="2">
+						<a href="javascript:;" id="a2"></a>
+						<dl class="layui-nav-child">
+						</dl>
+					</li>
+					<li class="layui-nav-item" id="3">
+						<a href="javascript:;" id="a3"></a>
+						<dl class="layui-nav-child">
+						</dl>
+					</li>
+					<li class="layui-nav-item" id="4">
+						<a href="javascript:;" id="a4"></a>
+						<dl class="layui-nav-child">
+						</dl>
+					</li>
+                    <li class="layui-nav-item" id="5">
+						<a href="javascript:;" id="a5"></a>
+						<dl class="layui-nav-child">
+						</dl>
+					</li>
+				</ul>
+			</div>
+
+
+			<!-- 搜索结果 -->
+			<div class="result">
+				{% block main %}
+					这是个空白页，请在此处加入您的代码！
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<!-- javascript -->
+	<script src="../static/assets/js/layui.js"></script>
+    <script type="text/javascript"
+        src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/libs.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/main.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/script.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/jquery.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/global.js"></script>
+	<script>
+		//JavaScript代码区域
+		layui.use('element', function(){
+		  var element = layui.element;
+
+		});
+	</script>
+    <script>
+        /*点击索引 得到不同分面目录*/
+        function get_facet_menu(obj,id){
+            document.getElementById("0").style.display="none";
+            document.getElementById("1").style.display="none";
+            document.getElementById("2").style.display="none";
+            document.getElementById("3").style.display="none";
+            document.getElementById("4").style.display="none";
+            document.getElementById("5").style.display="none";
+            $.ajax({
+                type: 'GET',
+                url: "http://127.0.0.1:8000/facet_menu/",
+                data: {
+                    index:id,
+                },
+                success: function(data) { // 这里的data就是json格式的数据
+                    console.log(data);
+                    $.each(data, function(i) {
+                        id = i.toString()
+                        var aid = "a"+id
+                        console.log(document.getElementById(id))
+                        document.getElementById(aid).innerHTML=data[i];
+                        document.getElementById(id).style.display="block";
+                    });
+                },
+                error: function(xhr, type) {
+                }
+            });
+        }
+</script>
+
+
+</body>
+
+</html> 
+
