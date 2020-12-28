@@ -3,7 +3,7 @@ import redis
 from django.shortcuts import render
 from django.views.generic.base import View
 from .models import GCC
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from elasticsearch import Elasticsearch
 from datetime import datetime
 from django.db import connection
@@ -280,3 +280,24 @@ def Gaoji(request):
     return render(request,'gaoji.html')
 
 
+def facet_menu(request):     # 分面的目录
+    facet_dic = {"gcc": ["保健功能", "适用人群", "品牌", "原料", "营养素名"],
+                 "jkkk": ["保健功能", "适用人群", "品牌", "原料", "营养素名"],
+                 "rawmaterial": ["功能", "有效成分", "贮藏方法"],
+                 "ingredients": ["功能"],
+                 "nutrients": ["营养素名称", "功能", "典型缺乏病", "使用意见", "适用范围", "适宜人群"],
+                 "other_ingredient": ["类别", "功能", "理化性质", "存在", "应用"],
+                 "buying_guides": ["关键词"],
+                 "regulations2": ["发布单位", "发布日期", "生效日期"]}
+    if request.GET.get('index'):
+        index = request.GET.get('index')
+        print(index)
+        menu = facet_dic[index]
+    else:
+        menu = facet_dic["gcc"]
+    return JsonResponse(menu, safe=False)
+
+
+# 用于调试
+def base(request):
+    return render(request, 'base.html')
