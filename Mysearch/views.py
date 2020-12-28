@@ -15,28 +15,23 @@ client = Elasticsearch(hosts=["47.110.225.193:9200"],http_auth=('elastic', 'Pinj
 redis_cli = redis.StrictRedis()
 #字段
 source = {
-    "gcc":["bjspName","productID","applicantName","applicantAddress","naturalProgression","bufaDate","changeDate"
-                      "productIngredients","qianProductID","qianProductId","shourangAddress","shourangName","storageMethod",
-"targetPopulation","useMethods","warning","zhuanrangAddress","zhuanrangChName","zhuanrangDate","zhuanrangEnName",
-                      "useMethods","productSpecifications","dateValid",
-                      "storageMethod","warning","pizhunDate"],
+       "gcc":["bjspName","productID","naturalProgression","targetPopulation","notargetPopulation","productIngredients","dateValid","expirationDate",
+           "useMethods","pizhunDate","productSpecifications","storageMethod", "applicantName","applicantAddress","warning"],
+    "jkkk":["bjspChName","bjspEnName","productID","naturalProgression","targetPopulation","notargetPopulation","productIngredients","dateValid","expirationDate",
+        "useMethods","pizhunDate","productSpecifications","storageMethod", "applicantName","applicantAddress","warning",
+        "country","manufacturerChName","manufacturerEnName","activeIngredient"],
+
     "rawmaterial":["RawMaterialAlternateName","RawMaterialEnglishName","RawMaterialFunction",
                    "RawMaterialName","activeIngredient","character","description","image","storagePractice",
                    "tropismOfTaste"],
     "other_ingredient":["class_description","functional_ingredients_class","functional_ingresients"],
     "nutrients":["chemical_compound","deficiency","nutrient_name","opinions","physiologic_function",],
-    "jkkk":["activeIngredient","address","applicantAddress","applicantEnName","beianContent",
-            "beianDate","bjspChName","bjspEnName","bufaDate","cancelReason","changeContent","changeDate",
-            "country","dateValid","expirationDate","manufacturerChName","manufacturerEnName","naturalProgression",
-            "notargetPopulation","pizhunDate","productID","productId","productIngredients","productSpecifications",
-            "qianProductID","shourangAddress","shourangName","storageMethod","targetPopulation","useMethods",
-            "warning","zhuanrangAddress","zhuanrangDate","zhuanrangName"],
     "regulations2":["content","documentNumber","effectiveDate","expirationDate","issueDate",
                     "issuer","title"],
-    "buying_guides":["content","guideauthor","title",]}
+    "buying_guides":["content","guideauthor","title", "suggest"]}
 #搜索建议需要展示的字段
-suggest_field ={"buying_guides":"title","regulations2":"title","jkkk":"bjspChName","nutrients":"nutrient_name","other_ingredient":"functional_ingredients_class","rawmaterial":"RawMaterialName",
-                "gcc":"bjspName"}
+suggest_field ={"buying_guides": "suggest","regulations2": "title","jkkk": "bjspChName", "nutrients": "nutrient_name", "other_ingredient": "functional_ingredients_class", "rawmaterial": "RawMaterialName",
+                "gcc": "bjspName"}
 # Create your views here.
 
 class IndexView(View):
@@ -52,32 +47,39 @@ class SearchSuggest(View):
         #索引参数需要以’,‘逗号分隔
         index = request.GET.get('index','')
         re_datas = []
-
+        # 判断index 变量
+        if index == "gcc":
+            field = "bjspName"
+        elif index == "buying_guides":
+            field = "suggest"
+        elif index == "jkkk":
+            field = "bjspChName"
+        else:
+            field = [""]
         if key_words:
             response = client.search(
-                    index=index,
-                    body={
-                        "suggest": {
-                                "my_suggest": {
-                                  "text": key_words,
-                                  "completion": {
-                                    "field": "suggest",
-                                    "skip_duplicates":True,
-                                      "fuzzy": {
-                                          # 模糊查询，编辑距离
-                                          "fuzziness": 2
-                                      }
-                                  }
+                index=index,
+                body={
+                    "suggest": {
+                        "my_suggest": {
+                            "text": key_words,
+                            "completion": {
+                                "field": field,
+                                "skip_duplicates": True,
+                                "fuzzy": {
+                                    # 模糊查询，编辑距离
+                                    "fuzziness": 2
+                                }
+                            }
 
-                                }}}
+                        }}}
 
             )
-            print(response)
-            for match in response['suggest']['my_suggest'][0]["options"]:
-                source = match["_source"]
-                re_datas.append(suggest_field[index])
-        return HttpResponse(json.dumps(re_datas), content_type="application/json")
 
+            for match in response['suggest']['my_suggest'][0]["options"]:
+                text = match["text"]
+                re_datas.append(text)
+        return HttpResponse(json.dumps(re_datas), content_type="application/json")
 
 
 class SearchView(View):
@@ -93,12 +95,12 @@ class SearchView(View):
         快速搜索的关键词参数形式
         key=关键词&field=字段名
         '''
-        key_index = request.GET.get("index","gcc")
-        type = request.GET.get("search_type","mohu")
+        key_index = request.GET.get("index", "gcc")
+        type = request.GET.get("search_type", "mohu")
         #模糊与精确的关键词
         key_words = request.GET.get("q", "")
 
-        topn_search = redis_cli.zrevrangebyscore("search_keywords_set","+inf","-inf",start=0,num=5)
+        topn_search = redis_cli.zrevrangebyscore("search_keywords_set", "+inf", "-inf", start=0,num=5)
         # 搜索记录、热门搜索功能实现
         page = request.GET.get("p", "1")
         try:
@@ -107,7 +109,6 @@ class SearchView(View):
                 page = 1
         except:
             page = 1
-
         start_time = datetime.now()
         hit_list = []
         page_nums = 0
@@ -124,8 +125,8 @@ class SearchView(View):
                         "from": (page - 1) * 10,
                         "size": 10,
                         "highlight": {
-                            "pre_tags": ["<em class='keyWord'>"],
-                            "post_tags": ["</em>"],
+                            "pre_tags": ["<b class='keyWord'>"],
+                            "post_tags": ["</b>"],
                             "fields": {
                                 i: {} for i in source[key_index]
                             }
@@ -142,7 +143,7 @@ class SearchView(View):
                         key_dict = {
                             "match": {
                                 i:{
-                                    "query":word,
+                                    "query": word,
                                     "operator": "AND"
                                 }
                             }
@@ -165,8 +166,8 @@ class SearchView(View):
                 "from": (page - 1) * 10,
                 "size": 10,
                 "highlight": {
-                    "pre_tags": ["<em class='keyWord'>"],
-                    "post_tags": ["</em>"],
+                    "pre_tags": ["<b class='keyWord'>"],
+                    "post_tags": ["</b>"],
                     "fields": {
                         i: {} for i in source[key_index]
                     }
@@ -174,21 +175,21 @@ class SearchView(View):
             }
         elif type == "quick":
             # 快速的关键词
-            key = request.GET.get("key","")
-            field = request.GET.get("field","")
-            body={
-              "query": {
-                "match": {
-                  key: field
-                }
-              },
+            # key = request.GET.get("key","")
+            field = request.GET.get("field", "")
+            body = {
+                "query": {
+                    "match": {
+                        "naturalProgression": field
+                    }
+                },
                 "from": (page - 1) * 10,
                 "size": 10,
                 "highlight": {
-                    "pre_tags": ["<em class='keyWord'>"],
-                    "post_tags": ["</em>"],
+                    "pre_tags": ["<b class='keyWord'>"],
+                    "post_tags": ["</b>"],
                     "fields": {
-                        i: {} for i in source[key_index]
+                        i: {} for i in source["gcc"]
                     }
                 }
             }
@@ -203,8 +204,8 @@ class SearchView(View):
                     "from": (page - 1) * 10,
                     "size": 10,
                     "highlight": {
-                        "pre_tags": ["<em class='keyWord'>"],
-                        "post_tags": ["</em>"],
+                        "pre_tags": ["<b class='keyWord'>"],
+                        "post_tags": ["</b>"],
                         "fields": {
                             i:{} for i in source[key_index]
                         }
@@ -212,7 +213,7 @@ class SearchView(View):
                 "aggs": {
                     "function_gc": {
                         "terms": {
-                            "field":"naturalProgression.keyword"
+                            "field": "naturalProgression.keyword"
                         }
                     }
                 }
@@ -227,9 +228,9 @@ class SearchView(View):
             page_nums += int(total_nums / 10) + 1
         else:
             page_nums += int(total_nums / 10)
-
         """
-        根据当前索引产生返回值，可能会有关于索引的判断逻辑"""
+        根据当前索引产生返回值，可能会有关于索引的判断逻辑
+        """
         for hit in response["hits"]["hits"]:
             """
             这里需要设置返回的数据"""
@@ -252,7 +253,8 @@ class SearchView(View):
             "page_nums": page_nums,
             "last_seconds": last_seconds,
             "topn_search": topn_search,
-            "body":body
+            "body": body,
+            "index": key_index
         })
         """
         返回给前端数，并且在前端需要设置显示效果"""
@@ -272,5 +274,9 @@ def Facet(request):
     del body["highlight"]
     response = client.search(body=body,index=index)
     return HttpResponse({"info":response["aggregations"]["function_gc"]["buckets"]},content_type ="application/json")
+
+
+def Gaoji(request):
+    return render(request,'gaoji.html')
 
 

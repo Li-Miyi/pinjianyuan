@@ -26,11 +26,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e126737a-c6c8-4745-8eaf-7b86f71b73a6" name="Default Changelist" comment="1.首页修改&#10;2.views返回结果">
+    <list default="true" id="e126737a-c6c8-4745-8eaf-7b86f71b73a6" name="Default Changelist" comment="修改结果页字段">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mysearch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mysearch/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,14 +86,102 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../大三下学期/检索/MoveSearch_v2-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../保健食品爬取/代码/JK_qiantao.py" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django Server.pinjianyuan">
+    <configuration name="GC_ndjson" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pinjianyuan" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../保健食品爬取/代码" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../保健食品爬取/代码/GC_ndjson.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GC_qiantao" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pinjianyuan" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../保健食品爬取/代码" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../保健食品爬取/代码/GC_qiantao.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="JK_ndjson" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pinjianyuan" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../保健食品爬取/代码" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../保健食品爬取/代码/JK_ndjson.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="JK_qiantao" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pinjianyuan" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../保健食品爬取/代码" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../保健食品爬取/代码/JK_qiantao.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="pinjianyuan" type="Python.DjangoServer" factoryName="Django server">
       <module name="pinjianyuan" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -119,6 +206,14 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.GC_ndjson" />
+        <item itemvalue="Python.GC_qiantao" />
+        <item itemvalue="Python.JK_ndjson" />
+        <item itemvalue="Python.JK_qiantao" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -133,6 +228,12 @@
       <workItem from="1609010667804" duration="340000" />
       <workItem from="1609039723431" duration="3347000" />
       <workItem from="1609045421519" duration="986000" />
+      <workItem from="1609092198790" duration="1756000" />
+      <workItem from="1609095514942" duration="1770000" />
+      <workItem from="1609127638663" duration="15000" />
+      <workItem from="1609128677774" duration="125000" />
+      <workItem from="1609128834583" duration="33000" />
+      <workItem from="1609128891186" duration="24313000" />
     </task>
     <task id="LOCAL-00001" summary="12-27">
       <created>1609010780011</created>
@@ -162,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609073105757</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改结果页字段">
+      <created>1609076940743</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609076940744</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,45 +304,59 @@
     <MESSAGE value="12-27" />
     <MESSAGE value="12-27 可以有数据了" />
     <MESSAGE value="1.首页修改&#10;2.views返回结果" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.首页修改&#10;2.views返回结果" />
+    <MESSAGE value="修改结果页字段" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改结果页字段" />
   </component>
   <component name="WindowStateProjectService">
     <state x="372" y="0" key="CommitChangelistDialog2" timestamp="1609039990768">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="372" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609039990768" />
-    <state x="828" y="174" key="FileChooserDialogImpl" timestamp="1609010118668">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="538" y="139" key="FileChooserDialogImpl" timestamp="1609156483508">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state x="794" y="182" key="FileChooserDialogImpl/0.0.1472.864@0.0.1472.864" timestamp="1609092727129" />
+    <state x="538" y="139" key="FileChooserDialogImpl/0.0.1473.864@0.0.1473.864" timestamp="1609156483508" />
     <state x="828" y="174" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609010118668" />
-    <state width="1429" height="2" key="GridCell.Tab.0.bottom" timestamp="1609076804355">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state width="1430" height="2" key="GridCell.Tab.0.bottom" timestamp="1609159819481">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state width="1429" height="2" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1609076804355" />
+    <state width="1430" height="2" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1609159819481" />
     <state width="1493" height="64" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609042027865" />
-    <state width="1429" height="2" key="GridCell.Tab.0.center" timestamp="1609076804355">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state width="1430" height="2" key="GridCell.Tab.0.center" timestamp="1609159819481">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state width="1429" height="2" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1609076804355" />
+    <state width="1430" height="2" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1609159819481" />
     <state width="1493" height="64" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609042027864" />
-    <state width="1429" height="2" key="GridCell.Tab.0.left" timestamp="1609076804355">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state width="1430" height="2" key="GridCell.Tab.0.left" timestamp="1609159819481">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state width="1429" height="2" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1609076804355" />
+    <state width="1430" height="2" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1609159819481" />
     <state width="1493" height="64" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609042027863" />
-    <state width="1429" height="2" key="GridCell.Tab.0.right" timestamp="1609076804355">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state width="1430" height="2" key="GridCell.Tab.0.right" timestamp="1609159819481">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state width="1429" height="2" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1609076804355" />
+    <state width="1430" height="2" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1609159819481" />
     <state width="1493" height="64" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609042027865" />
-    <state x="346" y="148" key="Vcs.Push.Dialog.v2" timestamp="1609073112065">
+    <state x="346" y="148" key="Vcs.Push.Dialog.v2" timestamp="1609076942798">
       <screen x="0" y="0" width="1472" height="864" />
     </state>
-    <state x="346" y="148" key="Vcs.Push.Dialog.v2/0.0.1472.864@0.0.1472.864" timestamp="1609073112065" />
+    <state x="346" y="148" key="Vcs.Push.Dialog.v2/0.0.1472.864@0.0.1472.864" timestamp="1609076942798" />
     <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1609010900858" />
-    <state x="531" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609046415187">
-      <screen x="0" y="0" width="1472" height="864" />
+    <state x="531" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609134665689">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state x="531" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1472.864@0.0.1472.864" timestamp="1609046415187" />
+    <state x="531" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1472.864@0.0.1472.864" timestamp="1609092284930" />
+    <state x="531" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1473.864@0.0.1473.864" timestamp="1609134665689" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pinjianyuan$GC_qiantao.coverage" NAME="GC_qiantao Coverage Results" MODIFIED="1609138594647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../保健食品爬取/代码" />
+    <SUITE FILE_PATH="coverage/pinjianyuan$JK_qiantao.coverage" NAME="JK_qiantao Coverage Results" MODIFIED="1609138583721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../保健食品爬取/代码" />
+    <SUITE FILE_PATH="coverage/pinjianyuan$JK_ndjson.coverage" NAME="JK_ndjson Coverage Results" MODIFIED="1609138589407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../保健食品爬取/代码" />
+    <SUITE FILE_PATH="coverage/pinjianyuan$GC_ndjson.coverage" NAME="GC_ndjson Coverage Results" MODIFIED="1609154286607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../保健食品爬取/代码" />
   </component>
 </project>

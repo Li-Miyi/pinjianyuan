@@ -34,6 +34,9 @@ urlpatterns = [
     url(r'^search/$', SearchView.as_view(), name="search"),
     #分面搜索
     url(r'^facet/$', Facet, name="facet"),
+#高级搜索
+    url(r'^gaoji/$', Gaoji, name="gaoji"),
+
 
 ]
 
