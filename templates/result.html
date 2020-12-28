@@ -11,7 +11,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-
+    <style>
+        em{
+            color: #d90909;
+            word-wrap: break-word;
+        }
+    </style>
 
     <meta name="description" content="品健源">
 {#    <meta name="author" content="品健源">#}
@@ -43,19 +48,21 @@
     <link rel="stylesheet" href="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/css/plugins/animate.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/css/style.css">
-    
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="search" href="../static/css/style.css">
+
+
     <script>
         var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
           hm.src = "https://hm.baidu.com/hm.js?83f3606ac4a6e55ee8dab2cea4cc2ed0";
-          var s = document.getElementsByTagName("script")[0]; 
+          var s = document.getElementsByTagName("script")[0];
           s.parentNode.insertBefore(hm, s);
         })();
     </script>
 
-    
+
 
 </head>
 <body id="top" class="stickyfooter header-fixed">
@@ -68,47 +75,47 @@
                     <div class="pull-left">
                         <!-- Logo -->
                         <a href="{% url 'index' %}" class="logo clearfix">品健源</a>
-                        <a href="http://127.0.0.1:8000//static/img/logo.png"></a>
+                        <a href="http://127.0.0.1:8000/static/img/logo.png"></a>
                     </div>
 
                 </div>
             </div>
             <!-- End header-container -->
         </header>
-        <div id="fullscreen-navigation">
-            <div class="inner-wrap">
-                <nav>
-                    <ul class="nav_menu">
-                        <li><a href="{% url 'index' %}">Home</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- End fullscreen-navigation -->
-        <section class="jarallax" style="background-image: url({% static 'img/bg/08.png' %});">
-            <div class="container">
-                <div class="aligner">
-                    <div class="aligner-item page-title">
-                        <h1>Just&nbsp;&nbsp;&nbsp;&nbsp;Downlink</h1>
-                        <form class="form-wrapper cf">
-                            <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"
-                                   value="{{ key_words }}"
-                                   placeholder="Search here ...">
-                            <button type="button" class="searchButton" onclick="add_search()">Search</button>
-
-                            <div class="list-group dataList text-left">
+{#        <div id="fullscreen-navigation">#}
+{#            <div class="inner-wrap">#}
+{#                <nav>#}
+{#                    <ul class="nav_menu">#}
+{#                        <li><a href="{% url 'index' %}">Home</a></li>#}
+{#                    </ul>#}
+{#                </nav>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- End fullscreen-navigation -->#}
+{#        <section class="jarallax" style="background-image: url({% static 'img/bg/08.png' %});">#}
+{#            <div class="container">#}
+{#                <div class="aligner">#}
+{#                    <div class="aligner-item page-title">#}
+{#                        <h1>Just&nbsp;&nbsp;&nbsp;&nbsp;Downlink</h1>#}
+{#                        <form class="form-wrapper cf">#}
+{#                            <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"#}
+{#                                   value="{{ key_words }}"#}
+{#                                   placeholder="Search here ...">#}
+{#                            <button type="button" class="searchButton" onclick="add_search()">Search</button>#}
+{##}
+{#                            <div class="list-group dataList text-left">#}
                                 {#                                <a href="#" class="list-group-item text-left">Cras justo odio </a>#}
                                 {#                                <a href="#" class="list-group-item text-left">Dapibus ac facilisis in</a>#}
                                 {#                                <a href="#" class="list-group-item text-left">Morbi leo risus</a>#}
                                 {#                                <a href="#" class="list-group-item text-left">Porta ac consectetur ac</a>#}
                                 {#                                <a href="#" class="list-group-item text-left">Vestibulum at eros</a>#}
-                            </div>
-                        </form>
-                        <p>Creative Digital Agency</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+{#                            </div>#}
+{#                        </form>#}
+{#                        <p>Creative Digital Agency</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </section>#}
         <!-- End section -->
 
         <main>
@@ -117,42 +124,74 @@
                 <div class="container">
 
                     <!-- End filters-wrap -->
-                    <div class="portfolio-masonry-wrapper" data-col="3" data-gutter="30">
-                        <div class="portfolio-list">
-                            {% for hit in all_hits %}
+
+                    <div class="portfolio-masonry-wrapper" data-col="100%" data-gutter="10%" align="center">
+                        <div class="portfolio-list" align="center">
                                 <article class="portfolio-item-wrap">
                                     <div class="list-group">
                                         <a style="background-color:#efefef;" href="{{ hit.url }}"
                                            class="list-group-item list-group-item-info">
-                                            <h4 class="list-group-item-heading text-center">
-                                                {% autoescape off %}{{ hit.title }}{% endautoescape %}
+                                            <h4 class="list-group-item-heading text-left">
+{#                                                {% autoescape off %}{{ hit.title }}{% endautoescape %}#}
+                                                共查询得到 <font color="blue">{{ total_nums }}</font>  条结果
                                             </h4>
+
                                         </a>
 
-                                        <h6 style="padding: 15px;background-color:#efefef;font-size:12px;text-indent: 24px; text-align: justify; word-break:break-all;"
-                                            class="list-group-item-text list-group-item-info text-left text-lowercase">
-                                            <br>保健食品名称：{% autoescape off %}{{ hit.bjspName }}{% endautoescape %}<br><br>
-                                            批准文号：{{ hit.productID }}<br><br>
-                                            功效：{{ hit.naturalProgression }}<br><br>
-                                            原料：{{ hit.productIngredients }}<br><br>
-                                            适宜人群：{{ hit.targetPopulation }}<br><br>
-                                            不适宜人群：{{ hit.notargetPopulation }}<br><br>
-                                            使用方法：{{ hit.useMethods }}<br><br>
-                                            产品规格：{{ hit.productSpecifications }}<br><br>
-                                            保质期：{{ hit.dateValid }}<br><br>
-                                            生产商：{{ hit.applicantName }}<br><br>
-                                            厂商地址：{{ hit.applicantAddress }}
+                                        <h6 style="padding: 15px;background-color:#efefef;font-size:12px;text-indent: 24px; text-align: justify; word-break:break-all;" class="list-group-item-text list-group-item-info text-left text-lowercase">
+                                            {% for hit in all_hits %}
+                                                <div>
+                                                    <table align="center">
+                                                        {% if index == "gcc"  %}
+                                                            <tr><td><font size="5"><b>{% autoescape off %}{{ hit.bjspName | safe }}{% endautoescape %}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<b>批准文号：</b>{{ hit.productID | safe}}</td></tr>
+                                                            <tr>
+                                                            <td>
+                                                                <b>功效：</b>{{ hit.naturalProgression | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br><br> {#  <b>原料：</b>{{ hit.productIngredients. | safe }} #}
+                                                                <b>适宜人群：</b>{{ hit.targetPopulation | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>不适宜人群：</b>{{ hit.notargetPopulation | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>使用方法：</b>{{ hit.useMethods | safe}}<br><br>
+                                                                <b>产品规格：</b>{{ hit.productSpecifications | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<b>保质期：</b>{{ hit.dateValid | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>生产商：</b>{{ hit.applicantName | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>厂商地址：</b>{{ hit.applicantAddress | safe}}<br><br>
+                                                            </td>
+                                                            </tr>
+                                                        {% elif index == "buying_guides" %}
+                                                            {% if hit.guideauthor == none %}
+                                                                <font size="5"><b>{% autoescape off %}{{ hit.title | safe }}{% endautoescape %}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                                <b>内容：</b>
+                                                                {% for row in hit.content %}
+                                                                    {{ row | safe}}
+                                                                {% endfor %}
+                                                            {% else %}
+                                                                <font size="5"><b>{% autoescape off %}{{ hit.title | safe }}{% endautoescape %}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ hit.guideauthor | safe}}</b><br><br>
+                                                                <b>内容：</b>
+                                                                {% for row in hit.content %}
+                                                                    {{ row | safe}}
+                                                                {% endfor %}
+                                                            {% endif %}
+
+                                                        {% endif %}
+                                                    </table>
+                                                    <hr>
+                                                </div>
+                                            {% endfor %}
+{#                                            <br>保健食品名称：{% autoescape off %}{{ hit.bjspName }}{% endautoescape %}<br><br>#}
+{#                                            批准文号：{{ hit.productID }}<br><br>#}
+{#                                            功效：{{ hit.naturalProgression }}<br><br>#}
+{#                                            原料：{{ hit.productIngredients }}<br><br>#}
+{#                                            适宜人群：{{ hit.targetPopulation }}<br><br>#}
+{#                                            不适宜人群：{{ hit.notargetPopulation }}<br><br>#}
+{#                                            使用方法：{{ hit.useMethods }}<br><br>#}
+{#                                            产品规格：{{ hit.productSpecifications }}<br><br>#}
+{#                                            保质期：{{ hit.dateValid }}<br><br>#}
+{#                                            生产商：{{ hit.applicantName }}<br><br>#}
+{#                                            厂商地址：{{ hit.applicantAddress }}#}
                                         </h6>
                                     </div>
                                 </article>
-                            {% endfor %}
 
 
                         </div>
 
 
                         <div class="classic-load-button text-center">
-                            <p class="end" style="background-color:#DCDCDC;">Sorry <br> No More MOVIES</p>
+                            <p class="end" style="background-color:#DCDCDC;">Sorry <br> No More Result</p>
                             <span id="classic-load-button-link" class="pagination" data-load="1"></span>
                         </div>
 
@@ -161,108 +200,112 @@
             </div>
 
 
-            <!-- Count To -->
-            <section class="section mt blog-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="counter-item text-center">
-                                <div class="end-value">
-                                    <i>180</i>
-                                    <span>W+</span>
-                                </div>
-                                <h6>TOP SEARCH</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="counter-item text-center">
-                                <div class="end-value">
-                                    <i>13</i>
-                                    <span>W+</span>
-                                </div>
-                                <h6>HOT MOVIES</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="counter-item text-center">
-                                <div class="end-value">
-                                    <i>17</i>
-                                    <span>+</span>
-                                </div>
-                                <h6>WEBSITE PROJECTS </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- End section -->
+{#            <!-- Count To -->#}
+{#            <section class="section mt blog-bg">#}
+{#                <div class="container">#}
+{#                    <div class="row">#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="counter-item text-center">#}
+{#                                <div class="end-value">#}
+{#                                    <i>180</i>#}
+{#                                    <span>W+</span>#}
+{#                                </div>#}
+{#                                <h6>TOP SEARCH</h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="counter-item text-center">#}
+{#                                <div class="end-value">#}
+{#                                    <i>13</i>#}
+{#                                    <span>W+</span>#}
+{#                                </div>#}
+{#                                <h6>HOT MOVIES</h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-md-4">#}
+{#                            <div class="counter-item text-center">#}
+{#                                <div class="end-value">#}
+{#                                    <i>17</i>#}
+{#                                    <span>+</span>#}
+{#                                </div>#}
+{#                                <h6>WEBSITE PROJECTS </h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </section>#}
+{##}
+{#            <!-- End section -->#}
+{##}
+{#        </main>#}
+{#        <a href="#top" class="scroll-top scroll-top-hidden">#}
+{#            <i class="fa fa-angle-up"></i>#}
+{#        </a>#}
+{#        <!-- End scroll-top -->#}
+{#    </div>#}
+{#    <!-- End content -->#}
+{#    <footer>#}
+{#        <div class="footer">#}
+{#            <div class="container">#}
+{#                <div class="text-center">#}
+{#                    <!-- Footer Logo Text -->#}
+{#                    <div class="footer-socials">#}
+{#                        <a href="https://www.facebook.com/profile.php?id=100012742063569" data-toggle="tooltip"#}
+{#                           data-placement="top" title="facebook">#}
+{#                            <i class="fa fa-fw fa-facebook"></i>#}
+{#                        </a>#}
+{#                        <a href="https://twitter.com/iamdongfei" data-toggle="tooltip" data-placement="top"#}
+{#                           title="twitter">#}
+{#                            <i class="fa fa-fw fa-twitter"></i>#}
+{#                        </a>#}
+{#                        <a href="https://plus.google.com/105235638425183033744" data-toggle="tooltip"#}
+{#                           data-placement="top" title="google plus">#}
+{#                            <i class="fa fa-fw fa-google-plus"></i>#}
+{#                        </a>#}
+{#                        <a href="http://blog.dongfei.xin/atom.xml" data-toggle="tooltip" data-placement="top"#}
+{#                           title="rss">#}
+{#                            <i class="fa fa-fw fa-rss"></i>#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    <!-- End socials -->#}
+{#                    <!-- End footer-menu -->#}
+{#                    <p class="copy">#}
+{#                        Copyright &copy; 2018.Company name All rights reserved . <a target="_blank"#}
+{#                                                                                    href="http://www.smallseashell.com/">Dongfei</a>#}
+{#                        <br><h6>备案号：苏ICP备17072109号</h6>#}
+{#                    </p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </footer>#}
+{#    <!-- End footer -->#}
+
 
         </main>
-        <a href="#top" class="scroll-top scroll-top-hidden">
-            <i class="fa fa-angle-up"></i>
-        </a>
-        <!-- End scroll-top -->
+    <br>
     </div>
-    <!-- End content -->
-    <footer>
-        <div class="footer">
-            <div class="container">
-                <div class="text-center">
-                    <!-- Footer Logo Text -->
-                    <div class="footer-socials">
-                        <a href="https://www.facebook.com/profile.php?id=100012742063569" data-toggle="tooltip"
-                           data-placement="top" title="facebook">
-                            <i class="fa fa-fw fa-facebook"></i>
-                        </a>
-                        <a href="https://twitter.com/iamdongfei" data-toggle="tooltip" data-placement="top"
-                           title="twitter">
-                            <i class="fa fa-fw fa-twitter"></i>
-                        </a>
-                        <a href="https://plus.google.com/105235638425183033744" data-toggle="tooltip"
-                           data-placement="top" title="google plus">
-                            <i class="fa fa-fw fa-google-plus"></i>
-                        </a>
-                        <a href="http://blog.dongfei.xin/atom.xml" data-toggle="tooltip" data-placement="top"
-                           title="rss">
-                            <i class="fa fa-fw fa-rss"></i>
-                        </a>
-                    </div>
-                    <!-- End socials -->
-                    <!-- End footer-menu -->
-                    <p class="copy">
-                        Copyright &copy; 2018.Company name All rights reserved . <a target="_blank"
-                                                                                    href="http://www.smallseashell.com/">Dongfei</a>
-                        <br><h6>备案号：苏ICP备17072109号</h6>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
 </div>
-
 </body>
 <!-- End animsition -->
-{#<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/libs.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/main.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/script.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/search/jquery.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/search/global.js' %}"></script>#}
-{#<script type="text/javascript" src="{% static 'js/search/pagination.js' %}"></script>#}
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/libs.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/search/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/search/global.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/search/pagination.js' %}"></script>
 <!-- Custom -->
 
 
-<script type="text/javascript"
-        src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/libs.js"></script>
 <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/main.js"></script>
 <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/script.js"></script>
 <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/jquery.js"></script>
 <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/global.js"></script>
-<script type="text/javascript"
-        src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/pagination.js"></script>
+<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/pagination.js"></script>
+<script type="application/javascript" src="../static/css/style.css"></script>
 
 
 <script type="text/javascript">
@@ -457,6 +500,4 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
-
-
 </html>
