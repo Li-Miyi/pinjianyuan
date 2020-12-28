@@ -20,7 +20,6 @@ source = {
     "jkkk":["bjspChName","bjspEnName","productID","naturalProgression","targetPopulation","notargetPopulation","productIngredients","dateValid","expirationDate",
         "useMethods","pizhunDate","productSpecifications","storageMethod", "applicantName","applicantAddress","warning",
         "country","manufacturerChName","manufacturerEnName","activeIngredient"],
-
     "rawmaterial":["RawMaterialAlternateName","RawMaterialEnglishName","RawMaterialFunction",
                    "RawMaterialName","activeIngredient","character","description","image","storagePractice",
                    "tropismOfTaste"],
@@ -28,10 +27,11 @@ source = {
     "nutrients":["chemical_compound","deficiency","nutrient_name","opinions","physiologic_function",],
     "regulations2":["content","documentNumber","effectiveDate","expirationDate","issueDate",
                     "issuer","title"],
-    "buying_guides":["content","guideauthor","title", "suggest"]}
+    "buying_guides":["content","guideauthor","title", "suggest"],
+    "ingredients":["CNS","ExcipientsEnglishName","ExcipientsFunction","ExcipientsName","ExcipientsStandard","LiquidDoseSchedule","SolidDoseSchedule","id","definition"]}
 #搜索建议需要展示的字段
-suggest_field ={"buying_guides": "suggest","regulations2": "title","jkkk": "bjspChName", "nutrients": "nutrient_name", "other_ingredient": "functional_ingredients_class", "rawmaterial": "RawMaterialName",
-                "gcc": "bjspName"}
+suggest_field ={"gcc": "bjspName","jkkk": "bjspChName","buying_guides": "suggest","regulations2": "title", "nutrients": "chemical_name",
+                "other_ingredient": "functional_ingredient_name","rawmaterial": "RawMaterialName","ingredients":"ExcipientsName"}
 # Create your views here.
 
 class IndexView(View):
