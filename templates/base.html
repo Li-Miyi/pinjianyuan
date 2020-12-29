@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
+{% load static %}
 <head>
 <title>品健源</title>
 
@@ -17,9 +18,9 @@
 
 <!-- Theme CSS -->  
 <!-- <link id="theme-style" rel="stylesheet" href="../static/assets/css/theme.css"> -->
-<link id="theme-style" rel="stylesheet" href="../static/assets/css/seach.css">
+<link id="theme-style" rel="stylesheet" href="../static/assets/css/search.css">
 <link rel="stylesheet" href="../static/assets/css/layui.css">
-
+{#<link rel="stylesheet" href="../static/css/style1.css">#}
 
 
 
@@ -29,20 +30,44 @@
 
 <body style = "background-image: url('../static/assets/images/background.png'); z-index:0;">
 
-	<header class="header fixed-top">	    
+	<header class="header fixed-top">
 		<div class="branding docs-branding">
 		</div>
 	</header>
 
 	<!-- 搜索框 -->
-	<div style="text-align: center; margin-left:33%;">
-		<div style=" width:1px; height:1px; margin-left: 0;float: left;">
-			<img src="../static/assets/images/logo.png" width="192" height="108">
+	<div class="search_bar_logo_base">
+		<div class="logo_base">
+            <a href="http://127.0.0.1:8000/"><img src="../static/assets/images/logo.png" width="192px" height="108px"></a>
 		</div>
-		<div class="box_main" style="float: left; margin-left:200px;">
-			<input type="" class="email_bt" placeholder="请输入关键词" name="">
-			<button class="subscribe_bt"><a href="#"><img class="searchimg" src="../static/assets/images/search.png"></a></button>
-		</div>
+        <div class="search_bar_base">
+            <form class="box_main">
+                <select class="selecbtn1_base" id="index">
+{#					<option value ="shipin">保健食品</option>#}
+{#					<option value ="chengfen">原料成分</option>#}
+                    <option value ="gcc">国产</option>
+                    <option value ="jkkk">进口</option>
+                    <option value ="rawmaterial">原料</option>
+                    <option value ="ingredients">辅料</option>
+                    <option value ="nutrients">营养素</option>
+                    <option value ="other_nutrients">其他成分</option>
+					<option value ="regulations2">法律法规</option>
+					<option value ="buying_guides">选购指南</option>
+				</select>
+                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput" id="keyword"
+                                   placeholder="请输入 ...">
+                <button type="button" class="subscribe_bt" onclick="add_search()"><img class="searchimg" src="../static/images/search.png"></button>
+				<select class="selecbtn_base" id="type">
+					<option value ="mohu">模糊搜索</option>
+					<option value ="jingque">精确搜索</option>
+				</select>
+                <a class="subscribe_btn_base" href="http://127.0.0.1:8000/gaoji/">高级搜索</a>
+		    </form>
+        </div>
+{#		<div class="box_main" style="float: left; margin-left:200px;">#}
+{#			<input type="" class="email_bt" placeholder="请输入关键词" name="">#}
+{#			<button class="subscribe_bt"><a href="#"><img class="searchimg" src="../static/assets/images/search.png"></a></button>#}
+{#		</div>#}
 	</div>
 	
 	<!-- 主体内容 -->
@@ -66,7 +91,7 @@
 			<!-- 分面 -->
 			<div class="facet" id="fecet_menu">
 				<ul class="layui-nav layui-nav-tree" lay-filter="test" id="gc1" >
-					<li class="layui-nav-item" id="0">
+					<li class="layui-nav-item" id="0" onclick="get_aggs(this);">
 					  <a class="" href="javascript:;" id="a0"></a>
 					  <dl class="layui-nav-child">
 						<dd><a href="javascript:;"><input type="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;移动模块</a></dd>
@@ -110,9 +135,9 @@
 
 			<!-- 搜索结果 -->
 			<div class="result">
-				{% block main %}
+				{% block result %}
 					这是个空白页，请在此处加入您的代码！
-				{% endblock %}
+				{% endblock result %}
 			</div>
 		</div>
 	</div>
@@ -166,7 +191,82 @@
                 }
             });
         }
-</script>
+    </script>
+    <script>
+        /*点击某索引的某字段 得到其聚合结果*/
+        function get_aggs(obj){
+            {#document.getElementById("0").style.display="none";#}
+            {#document.getElementById("1").style.display="none";#}
+            {#document.getElementById("2").style.display="none";#}
+            {#document.getElementById("3").style.display="none";#}
+            {#document.getElementById("4").style.display="none";#}
+            {#document.getElementById("5").style.display="none";#}
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:8000/facet/",
+                data: {
+                    index:"gcc",
+                    field:"",
+
+                },
+                success: function(data) { // 这里的data就是json格式的数据
+                    console.log(data);
+                    {#$.each(data, function(i) {#}
+                    {#    id = i.toString()#}
+                    {#    var aid = "a"+id#}
+                    {#    console.log(document.getElementById(id))#}
+                    {#    document.getElementById(aid).innerHTML=data[i];#}
+                    {#    document.getElementById(id).style.display="block";#}
+                    //});
+                },
+                error: function(xhr, type) {
+                }
+            });
+        }
+    </script>
+
+
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+{#    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>#}
+    <script src="{% static 'js/jquery-3.0.0.min.js'%}"></script>
+    <script src="{% static 'js/plugin.js'%}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+{#    <script src="{% static 'js/custom.js'%}"></script> 这个不能要#}
+    <!-- javascript -->
+{#    <script src="{% static 'js/owl.carousel.js'%}"></script>#}
+{#    <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>#}
+    <script type="text/javascript">
+        var search_url = "{% url 'search' %}"
+        var suggest_url = "{% url 'suggest' %}"
+
+        var cpLock = false;
+        $('#keyword').on('compositionstart', function () {
+            cpLock = true;
+            console.log("不搜索")
+        });
+        $('#keyword').on('compositionend', function () {
+            cpLock = false;
+            console.log("汉字搜索");
+            add_search();
+        });
+        $('#keyword').on('input', function () {
+            if (!cpLock) {
+                console.log("字母搜索");
+                add_search();
+            }
+        });
+
+        function add_search() {
+            console.log("sf")
+            var val = $(".searchInput").val();
+            var index = $("select:first").val();
+            var search_type = $("select:last").val();
+            window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index
+        }
+    </script>
+
 
 
 </body>
