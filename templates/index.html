@@ -97,6 +97,12 @@
 					<option value ="jingque">精确搜索</option>
 				</select>
                 <a class="subscribe_btn" href="http://127.0.0.1:8000/gaoji/">高级搜索</a>
+                <div class="list-group dataList text-left mysearch" id="">
+{#                    <a href="#" class="list-group-item text-left">Dapibus ac facilisis in</a>#}
+{#                    <a href="#" class="list-group-item text-left">Morbi leo risus</a>#}
+{#                    <a href="#" class="list-group-item text-left">Porta ac consectetur ac</a>#}
+{#                    <a href="#" class="list-group-item text-left">Vestibulum at eros</a>#}
+                </div>
 		    </form>
 {#            <div class="am-u-md-offset-4 am-u-md-4">#}
 {#            <ul class="{% block suggest_list %}am-list am-list-border datalist{% endblock %}">#}
@@ -215,10 +221,12 @@
                     dataType: 'json',
                     url: suggest_url + "?s=" + val + "&index=" + index,
                     async: true,
-                    success: function (data) {  // 这里的data就是json格式的数据
+                    success: function (data) {
+                        console.log(data)
                         for (var i = 0; i < data.length; i++) {
-                            tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'
+                            tmpHtml += '<a class="list-group-item text-left" href="http://127.0.0.1:8000/search/?q='+data[i]+'&index='+index+'&search_type=mohu">' + data[i] + '</a>'
                         }
+                        console.log(tmpHtml)
                         $(".dataList").html("")
                         $(".dataList").append(tmpHtml);
                         if (data.length == 0) {
@@ -226,6 +234,13 @@
                         } else {
                             $('.dataList').show()
                         }
+                        /*$(".dataList").html("")
+                        $(".dataList").appendtmpHtml();
+                        if (data.length == 0) {
+                            $('.dataList').hide()
+                        } else {
+                            $('.dataList').show()
+                        }*/
                     }
                 });
             });})
@@ -273,7 +288,7 @@
             MapSearchArr();
         }
         window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index
-        base_url = 'http://127.0.0.1:8000/search/?q=' + val +'&search_type=' + search_type + '&index=' + index
+        {#base_url = 'http://127.0.0.1:8000/search/?q=' + val +'&search_type=' + search_type + '&index=' + index#}
     }
     </script>
 

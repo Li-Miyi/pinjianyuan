@@ -30,7 +30,7 @@ source = {
     "buying_guides":["content","guideauthor","title", "suggest"],
     "ingredients":["CNS","ExcipientsEnglishName","ExcipientsFunction","ExcipientsName","ExcipientsStandard","LiquidDoseSchedule","SolidDoseSchedule","id","definition"]}
 #搜索建议需要展示的字段
-suggest_field ={"gcc": "bjspName","jkkk": "bjspChName","buying_guides": "suggest","regulations2": "title", "nutrients": "chemical_name",
+suggest_field ={"gcc": "bjspName","jkkk": "bjspChName","buying_guides": "title","regulations2": "title", "nutrients": "chemical_name",
                 "other_ingredient": "functional_ingredient_name","rawmaterial": "RawMaterialName","ingredients":"ExcipientsName"}
 # Create your views here.
 
@@ -45,15 +45,23 @@ class SearchSuggest(View):
     def get(self, request):
         key_words = request.GET.get('s', '')
         #索引参数需要以’,‘逗号分隔
-        index = request.GET.get('index','')
+        index = request.GET.get('index')
         re_datas = []
         # 判断index 变量
         if index == "gcc":
             field = "bjspName"
         elif index == "buying_guides":
-            field = "suggest"
+            field = "title"
         elif index == "jkkk":
             field = "bjspChName"
+        elif index == "nutrients":
+            field = "chemical_name"
+        elif index == "other_ingredient":
+            filed = "functional_ingredient_name"
+        elif index == "rawmaterial":
+            filed = "RawMaterialName"
+        elif index == "ingredients":
+            filed = "ExcipientsName"
         else:
             field = [""]
         if key_words:
@@ -62,18 +70,19 @@ class SearchSuggest(View):
                 body={
                     "suggest": {
                         "my_suggest": {
-                            "text": key_words,
+                            "prefix": key_words,
                             "completion": {
                                 "field": field,
                                 "skip_duplicates": True,
-                                "fuzzy": {
-                                    # 模糊查询，编辑距离
-                                    "fuzziness": 2
-                                }
+                                "size": 5
+                                # "fuzzy": {
+                                #     # 模糊查询，编辑距离
+                                #     "fuzziness": 2
+                                # }
                             }
-
-                        }}}
-
+                        }
+                    }
+                }
             )
 
             for match in response['suggest']['my_suggest'][0]["options"]:
@@ -321,7 +330,6 @@ class SearchView(View):
             "index": key_index,
             "base_url": base_url,
             "q":key_words,
-            "index":key_index,
             "search_type":type
         })
         """

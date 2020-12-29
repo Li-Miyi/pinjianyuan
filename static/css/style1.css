@@ -1183,6 +1183,30 @@ input.btn_main_3::placeholder {
     border: 0px;
     border-radius: 20px;
 }
+.dataList {
+    /*z-index: 1999;*/
+    /*display: none;*/
+    margin-left: 445px;
+    position: absolute;
+    margin-top: 50px;
+    left: 0;
+    width: 22%;
+    /*padding: 5px 0;*/
+    /*background: #fff;*/
+    /*border: 1px solid #6ba2de;*/
+    /*background-color: #eeeeee;*/
+    /*border-top: none;*/
+}
+
+.dataList a {
+    width: 79.2%;
+}
+
+.dataList a:hover {
+    background: #6ba2de;
+    color: #ffffff;
+    font-weight: bold;
+}
 
 
 
