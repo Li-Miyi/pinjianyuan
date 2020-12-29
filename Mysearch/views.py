@@ -197,20 +197,20 @@ class SearchView(View):
                 key_list=[]
                 num =0
                 for i in tiaojian:
-                    if i in jingque_list:
-                        # word = value_tiaojian[num]
-                        key_dict = {
-                            "match": {
-                                i:{
-                                    "query": value_tiaojian[num],
-                                    "operator": "AND"
+                    if value_tiaojian[num]:  # 判断字段取值是否为空
+                        if i in jingque_list:
+                            key_dict = {
+                                "match": {
+                                    i:{
+                                        "query": value_tiaojian[num],
+                                        "operator": "AND"
+                                    }
                                 }
                             }
-                        }
-                    else:
-                        key_dict = {"match": {i:value_tiaojian[num]}}
-                    key_list.append(key_dict)
-                    num += 1
+                        else:
+                            key_dict = {"match": {i:value_tiaojian[num]}}
+                        key_list.append(key_dict)
+                        num += 1
                 return key_list
             must_key = get_key_list(must_list, value_must)
             should_key = get_key_list(should_list, value_should)

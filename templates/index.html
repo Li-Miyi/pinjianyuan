@@ -133,18 +133,7 @@
                         <a href="http://127.0.0.1:8000/search/?field=辅助保护胃黏膜损伤&search_type=quick">辅助保护胃黏膜损伤&nbsp&nbsp&nbsp</a>
                     </div>
 				</div>
-{#				<div style="display:flex;margin-top:10px;">#}
-{#					<div style="width:15%;text-align: center;font-size:18px;font-weight: normal;">功效成分</div>#}
-{#					<div style="width:85%;font-size: 17px;">维生素A 维生素C 维生素E 锌 钙 铁 硒 膳食纤维 酚 多糖 芦荟素 总黄酮</div>#}
-{#				</div>#}
-{#				<div style="display:flex;margin-top:10px;">#}
-{#					<div style="width:15%;text-align: center;font-size:18px;font-weight: normal;">适用人群</div>#}
-{#					<div style="width:85%;font-size: 17px;">老年人 孕妇 儿童</div>#}
-{#				</div>#}
 			</div>
-		    <!--<div class="bt_main">
-		    	<div class="discover_bt"><a href="#">Discover More</a></div>
-		    </div>-->
 		</div>
 	</div>
 	<!-- banner section end-->
@@ -167,13 +156,6 @@
     <!-- javascript -->
     <script src="{% static 'js/owl.carousel.js'%}"></script>
     <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>
-{#      <script>#}
-{#      $(document).ready(function(){#}
-{#      $(".fancybox").fancybox({#}
-{#         openEffect: "none",#}
-{#         closeEffect: "none"#}
-{#         });#}
-{#         </script>#}
     <script type="text/javascript">
         var search_url = "{% url 'search' %}"
         var suggest_url = "{% url 'suggest' %}"
@@ -186,20 +168,6 @@
                 }
             }
         }
-
-        {#function MapSearchArr() {#}
-        {#    var tmpHtml = "";#}
-        {#    var arrLen = 0#}
-        {#    if (searchArr.length >= 5) {#}
-        {#        arrLen = 5#}
-        {#    } else {#}
-        {#        arrLen = searchArr.length#}
-        {#    }#}
-        {#    for (var i = 0; i < arrLen; i++) {#}
-        {#        tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + searchArr[i] + '">' + searchArr[i] + '</a>'#}
-        {#    }#}
-        {#    $(".mysearch").html(tmpHtml);#}
-        {#}#}
 
         // 搜索建议
         $(function () {
@@ -257,21 +225,6 @@
         //把存储的数据显示出来作为搜索历史
         {#MapSearchArr();#}
         }
-
-        {#function add_search() {#}
-        {#    var keyword = $(".searchInput").val();#}
-        {#    var index = $("#index").val();#}
-        {#    var type = $("#type").val();#}
-        {#    if (keyword.length >= 2) {#}
-        {#        //点击搜索按钮时，去重#}
-        {#        KillRepeat(keyword);#}
-        {#        //去重后把数组存储到浏览器localStorage#}
-        {#        localStorage.search = searchArr;#}
-        {#        //然后再把搜索内容显示出来#}
-        {#        MapSearchArr();#}
-        {#    }#}
-            {#window.location.href = search_url+'?q=a'+keyword#}
-        {#    window.location.href = search_url+'?q='+keyword#}
     function add_search() {
         var val = $(".searchInput").val();
         var index = $("select:first").val();

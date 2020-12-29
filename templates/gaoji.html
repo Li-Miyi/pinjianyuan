@@ -43,33 +43,6 @@
 <body>
 	<!-- header section start-->
 	<nav class="top">
-{#        <a class="logo" href="#"><img src="images/logo.png"></a>#}
-{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#}
-{#        <span class="navbar-toggler-icon"></span>#}
-{#        </button>#}
-{#        <div class="collapse navbar-collapse" id="navbarNav">#}
-{#            <ul class="navbar-nav">#}
-{#                <li class="nav-item">#}
-{#                   <a class="nav-link" href="index.html">HOME</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                   <a class="nav-link" href="search jobs.html">SEARCH JOBS</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                   <a class="nav-link" href="recurments.html">RECRUITERS</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                   <a class="nav-link" href="companies.html">COMPANIES</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                   <a class="nav-link" href="services.html">SERVICES</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                   <a class="nav-link" href="#">MORE</a>#}
-{#                </li>#}
-{#            </ul>#}
-{#        </div>#}
-{#         <div class="login_text"><a href="login.html">LOGIN HERE</a></div>#}
     </nav>
 	<!-- header section start-->
 	<!-- banner section start-->
@@ -84,9 +57,9 @@
                     <option value ="naturalProgression">保健功能</option>
                     <option value ="targetPopulation">适宜人群</option>
                     <option value ="notargetPopulation">不适宜人群</option>
-					<option value ="productIngredients">配料</option>
-					<option value ="applicantName">申请人名称</option>
-                    <option value ="applicantAddress">申请人地址</option>
+					<option value ="productIngredients">原料</option>
+					<option value ="applicantName">厂商</option>
+                    <option value ="applicantAddress">厂商地址</option>
 				</select>
                 <input type="text" id="value1" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
                                    placeholder="请输入 ...">
@@ -107,9 +80,9 @@
                     <option value ="naturalProgression">保健功能</option>
                     <option value ="targetPopulation">适宜人群</option>
                     <option value ="notargetPopulation">不适宜人群</option>
-					<option value ="productIngredients">配料</option>
-					<option value ="applicantName">申请人名称</option>
-                    <option value ="applicantAddress">申请人地址</option>
+					<option value ="productIngredients">原料</option>
+					<option value ="applicantName">厂商</option>
+                    <option value ="applicantAddress">厂商地址</option>
 				</select>
                 <input type="text" id="value2" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
                                    placeholder="请输入 ...">
@@ -128,11 +101,11 @@
                     <option value ="bjspName">名称</option>
                     <option value ="productID">批准文号</option>
                     <option value ="naturalProgression">保健功能</option>
+                    <option value ="productIngredients">原料</option>
                     <option value ="targetPopulation">适宜人群</option>
-                    <option value ="notargetPopulation">不适宜人群</option>
-					<option value ="productIngredients">配料</option>
-					<option value ="applicantName">申请人名称</option>
-                    <option value ="applicantAddress">申请人地址</option>
+                    <option value ="notargetPopulation">不适宜人群</option
+					<option value ="applicantName">厂商</option>
+                    <option value ="applicantAddress">厂商地址</option>
 				</select>
                 <input type="text" id="value3" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
                                    placeholder="请输入 ...">
@@ -165,13 +138,6 @@
     <!-- javascript -->
     <script src="{% static 'js/owl.carousel.js'%}"></script>
     <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>
-{#      <script>#}
-{#      $(document).ready(function(){#}
-{#      $(".fancybox").fancybox({#}
-{#         openEffect: "none",#}
-{#         closeEffect: "none"#}
-{#         });#}
-{#         </script>#}
     <script type="text/javascript">
         var search_url = "{% url 'search' %}"
 
@@ -228,19 +194,9 @@
             var value3 = $("#value3").val();
             var type3 = $("select:eq(7)").val();
             var bool3 = $("select:eq(5)").val();
-            {#if (val.length >= 2) {#}
-            {#    //点击搜索按钮时，去重#}
-                {#KillRepeat(val);#}
-            {#    //去重后把数组存储到浏览器localStorage#}
-            {#    localStorage.search = searchArr;#}
-            {#    //然后再把搜索内容显示出来#}
-            {#    MapSearchArr();#}
-            {##}
-            {#window.location.href = 'http://127.0.0.1:8000/search/?key1='+key1+'&key2='+key2+'&key3='+key3+'$value1='+value1+'&value2='+value2+'&value3='+value3#}
-            {#+'&type1='+type1+'&type2='+type2+'&type3='+type3+'&bool1='+bool1+'&bool2='+bool2+'&bool3='+bool3#}
-            {#window.location.href = search_url + '?q=' + key1 +'&search_type=' + type1 + '&index=' + value1#}
             window.location.href = search_url + '?search_type=gaoji&key1='+key1+'&key2='+key2+'&key3='+key3+'&value1='+value1+'&value2='+value2+'&value3='+value3
             +'&type1='+type1+'&type2='+type2+'&type3='+type3+'&bool1='+bool1+'&bool2='+bool2+'&bool3='+bool3
+
         }
     </script>
 
