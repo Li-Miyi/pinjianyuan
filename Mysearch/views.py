@@ -144,7 +144,7 @@ class SearchView(View):
             type=[]
             bool=[]
             #key的取值是字段名
-            key1 = request.GET.get("key1", "")
+            key1 = request.GET.get("key1")
             print()
             key2 = request.GET.get("key2")
             key3 = request.GET.get("key3")
@@ -319,7 +319,8 @@ class SearchView(View):
             "topn_search": topn_search,
             "body": body,
             "index": key_index,
-            "base_url": base_url
+            "base_url": base_url,
+            "q":key_words
         })
         """
         返回给前端数，并且在前端需要设置显示效果"""

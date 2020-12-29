@@ -200,32 +200,31 @@
         }
 
         // 搜索建议
-        {#$(function () {#}
-        {#    $('.searchInput').bind(' input propertychange ', function () {#}
-        {#        var searchText = $(this).val();#}
-        {#        print(searchText)#}
-        {#        var tmpHtml = ""#}
-        {#        $.ajax({#}
-        {#            cache: false,#}
-        {#            type: 'get',#}
-        {#            dataType: 'json',#}
-        {#            url: suggest_url + "?s=" + searchText + "&s_type=GCC",#}
-        {#            async: true,#}
-        {#            success: function (data) {#}
-        {#                for (var i = 0; i < data.length; i++) {#}
-        {#                    tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'#}
-        {#                }#}
-        {#                $(".dataList").html("")#}
-        {#                $(".dataList").append(tmpHtml);#}
-        {#                if (data.length == 0) {#}
-        {#                    $('.dataList').hide()#}
-        {#                } else {#}
-        {#                    $('.dataList').show()#}
-        {#                }#}
-        {#            }#}
-        {#        });#}
-        {#    });#}
-        {##}
+        $(function () {
+            $('.searchInput').bind(' input propertychange ', function () {
+                var searchText = $(this).val();
+                var tmpHtml = ""
+                $.ajax({
+                    cache: false,
+                    type: 'get',
+                    dataType: 'json',
+                    url: suggest_url + "?s=" + searchText + "&s_type=GCC",
+                    async: true,
+                    success: function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'
+                        }
+                        $(".dataList").html("")
+                        $(".dataList").append(tmpHtml);
+                        if (data.length == 0) {
+                            $('.dataList').hide()
+                        } else {
+                            $('.dataList').show()
+                        }
+                    }
+                });
+            });})
+
 
         hideElement($('.dataList'), $('.searchInput'));
 
@@ -256,20 +255,6 @@
         MapSearchArr();
         }
 
-        {#function add_search() {#}
-        {#    var keyword = $(".searchInput").val();#}
-        {#    var index = $("#index").val();#}
-        {#    var type = $("#type").val();#}
-        {#    if (keyword.length >= 2) {#}
-        {#        //点击搜索按钮时，去重#}
-        {#        KillRepeat(keyword);#}
-        {#        //去重后把数组存储到浏览器localStorage#}
-        {#        localStorage.search = searchArr;#}
-        {#        //然后再把搜索内容显示出来#}
-        {#        MapSearchArr();#}
-        {#    }#}
-            {#window.location.href = search_url+'?q=a'+keyword#}
-        {#    window.location.href = search_url+'?q='+keyword#}
     function add_search() {
         var val = $(".searchInput").val();
         var index = $("select:first").val();
