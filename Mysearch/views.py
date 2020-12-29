@@ -139,10 +139,12 @@ class SearchView(View):
             value_must_not =[]
             value_should = []
             mohu_list = []
+            leixing = []
             type=[]
             bool=[]
             #key的取值是字段名
-            key1 = request.GET.get("key1")
+            key1 = request.GET.get("key1", "")
+            print()
             key2 = request.GET.get("key2")
             key3 = request.GET.get("key3")
             key.append(key1)
@@ -155,13 +157,14 @@ class SearchView(View):
             value.append(value1)
             value.append(value2)
             value.append(value3)
+            print(value)
             # type取值为mohu或者jingque
             type1 = request.GET.get("type1")
             type2 = request.GET.get("type2")
             type3 = request.GET.get("type3")
-            type.apend(type1)
-            type.apend(type2)
-            type.apend(type3)
+            leixing.append(type1)
+            leixing.append(type2)
+            leixing.append(type3)
             #bool的取值是must,must_not,should
             bool1 = request.GET.get("bool1")
             bool2 = request.GET.get("bool2")
@@ -169,6 +172,7 @@ class SearchView(View):
             bool.append(bool1)
             bool.append(bool2)
             bool.append(bool3)
+            print(bool)
             must_list=[]
             must_not_list=[]
             should_list=[]
@@ -184,7 +188,7 @@ class SearchView(View):
                 if bool[i] == "should":
                     should_list.append(key[i])
                     value_should.append(value[i])
-                if type[i] == "jingque":
+                if leixing[i] == "jingque":
                     jingque_list.append(key[i])
                 else:
                     mohu_list.append(value[i])
@@ -193,20 +197,20 @@ class SearchView(View):
                 key_list=[]
                 num =0
                 for i in tiaojian:
-                    if i in jingque_list:
-                        # word = value_tiaojian[num]
-                        key_dict = {
-                            "match": {
-                                i:{
-                                    "query": value_tiaojian[num],
-                                    "operator": "AND"
+                    if value_tiaojian[num]:  # 判断字段取值是否为空
+                        if i in jingque_list:
+                            key_dict = {
+                                "match": {
+                                    i:{
+                                        "query": value_tiaojian[num],
+                                        "operator": "AND"
+                                    }
                                 }
                             }
-                        }
-                    else:
-                        key_dict = {"match": {i:value_tiaojian[num]}}
-                    key_list.append(key_dict)
-                    num += 1
+                        else:
+                            key_dict = {"match": {i:value_tiaojian[num]}}
+                        key_list.append(key_dict)
+                        num += 1
                 return key_list
             must_key = get_key_list(must_list, value_must)
             should_key = get_key_list(should_list, value_should)
@@ -337,8 +341,8 @@ def Gaoji(request):
 
 
 def facet_menu(request):     # 分面的目录
-    facet_dic = {"gcc": ["保健功能", "适用人群", "品牌", "原料", "营养素名"],
-                 "jkkk": ["保健功能", "适用人群", "品牌", "原料", "营养素名"],
+    facet_dic = {"gcc": ["保健功能", "适宜人群", "原料", "厂商"],
+                 "jkkk": ["保健功能", "适宜人群", "原料", "厂商", "营养素名","国家"],
                  "rawmaterial": ["功能", "有效成分", "贮藏方法"],
                  "ingredients": ["功能"],
                  "nutrients": ["营养素名称", "功能", "典型缺乏病", "使用意见", "适用范围", "适宜人群"],
