@@ -74,20 +74,19 @@
 	<!-- header section start-->
 	<!-- banner section start-->
 	<div class="banner_section layout_padding">
-		<div class="container">
+		<form class="container">
 			<div align="center"><img class="lo" src="{% static 'images/lo.png'%}"></div>
 			<div class="box_main">
                 <div class="selecbtn_null"></div>
                 <select class="selecbtn2">
-                    <option value ="gcc">中文名称</option>
-                    <option value ="jkkk">英文名称</option>
-                    <option value ="rawmaterial">批准文号</option>
-                    <option value ="ingredients">保健功能</option>
-                    <option value ="nutrients">适宜人群</option>
-                    <option value ="other_nutrients">不适宜人群</option>
-					<option value ="regulations2">配料</option>
-					<option value ="buying_guides">申请人名称</option>
-                    <option value ="buying_guides">申请人地址</option>
+                    <option value ="bjspName">名称</option>
+                    <option value ="productID">批准文号</option>
+                    <option value ="naturalProgression">保健功能</option>
+                    <option value ="targetPopulation">适宜人群</option>
+                    <option value ="notargetPopulation">不适宜人群</option>
+					<option value ="productIngredients">配料</option>
+					<option value ="applicantName">申请人名称</option>
+                    <option value ="applicantAddress">申请人地址</option>
 				</select>
                 <input type="text" id="value1" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
                                    placeholder="请输入 ...">
@@ -98,20 +97,19 @@
 		    </div>
             <div class="box_main">
                 <select class="selecbtn">
-					<option value ="mohu">AND</option>
-					<option value ="jingque">OR</option>
-                    <option value ="jingque">NOT</option>
+					<option value ="must">AND</option>
+					<option value ="should">OR</option>
+                    <option value ="must_not">NOT</option>
 				</select>
                 <select class="selecbtn2">
-                    <option value ="gcc">中文名称</option>
-                    <option value ="jkkk">英文名称</option>
-                    <option value ="rawmaterial">批准文号</option>
-                    <option value ="ingredients">保健功能</option>
-                    <option value ="nutrients">适宜人群</option>
-                    <option value ="other_nutrients">不适宜人群</option>
-					<option value ="regulations2">配料</option>
-					<option value ="buying_guides">申请人名称</option>
-                    <option value ="buying_guides">申请人地址</option>
+                    <option value ="bjspName">名称</option>
+                    <option value ="productID">批准文号</option>
+                    <option value ="naturalProgression">保健功能</option>
+                    <option value ="targetPopulation">适宜人群</option>
+                    <option value ="notargetPopulation">不适宜人群</option>
+					<option value ="productIngredients">配料</option>
+					<option value ="applicantName">申请人名称</option>
+                    <option value ="applicantAddress">申请人地址</option>
 				</select>
                 <input type="text" id="value2" onkeydown="if(event.keyCode==13)return false;" class="searchInput2"
                                    placeholder="请输入 ...">
@@ -122,13 +120,12 @@
 		    </div>
             <div class="box_main">
                 <select class="selecbtn">
-					<option value ="mohu">AND</option>
-					<option value ="jingque">OR</option>
-                    <option value ="jingque">NOT</option>
+					<option value ="must">AND</option>
+					<option value ="should">OR</option>
+                    <option value ="must_not">NOT</option>
 				</select>
                 <select class="selecbtn2">
-                    <option value ="bjspChName">中文名称</option>
-                    <option value ="bjspEnName">英文名称</option>
+                    <option value ="bjspName">名称</option>
                     <option value ="productID">批准文号</option>
                     <option value ="naturalProgression">保健功能</option>
                     <option value ="targetPopulation">适宜人群</option>
@@ -147,16 +144,15 @@
 		    <div class="bt_main">
                 <button type="button" class="discover_bt" onclick="add_search()"><a>检&nbsp索</a></button>
 		    </div>
-		</div>
+		</form>
 	</div>
 	<!-- banner section end-->
-    <script type="text/javascript"
-        src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/libs.js"></script>
-<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/main.js"></script>
-<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/script.js"></script>
-<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/jquery.js"></script>
-<script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/global.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/libs.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/main.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/script.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/jquery.js"></script>
+    <script type="text/javascript" src="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/js/search/global.js"></script>
     <!-- Javascript files-->
     <script src="{% static 'js/jquery.min.js'%}"></script>
     <script src="{% static 'js/popper.min.js'%}"></script>
@@ -219,46 +215,31 @@
         //把存储的数据显示出来作为搜索历史
         MapSearchArr();
         }
-
-        {#function add_search() {#}
-        {#    var keyword = $(".searchInput").val();#}
-        {#    var index = $("#index").val();#}
-        {#    var type = $("#type").val();#}
-        {#    if (keyword.length >= 2) {#}
-        {#        //点击搜索按钮时，去重#}
-        {#        KillRepeat(keyword);#}
-        {#        //去重后把数组存储到浏览器localStorage#}
-        {#        localStorage.search = searchArr;#}
-        {#        //然后再把搜索内容显示出来#}
-        {#        MapSearchArr();#}
-        {#    }#}
-            {#window.location.href = search_url+'?q=a'+keyword#}
-        {#    window.location.href = search_url+'?q='+keyword#}
-    function add_search() {
-        var key1 = $("select:first").val();
-        var value1 = $(".searchInput:first").val();
-        var type1 = $("select:eq(1)").val();
-        var bool1 = 'AND'
-        var key2 = $("select:eq(3)").val();
-        var value2 = $("#value2").val();
-        var type2 = $("select:eq(4)").val();
-        var bool2 = $("select:eq(2)").val();
-        var key3 = $("select:eq(6)").val();
-        var value3 = $(".searchInput:last").val();
-        var type3 = $("select:eq(7)").val();
-        var bool3 = $("select:eq(5)").val();
-        if (val.length >= 2) {
-            //点击搜索按钮时，去重
-            {#KillRepeat(val);#}
-            //去重后把数组存储到浏览器localStorage
-            localStorage.search = searchArr;
-            //然后再把搜索内容显示出来
-            MapSearchArr();
+        function add_search() {
+            var key1 = $("select:first").val();
+            var value1 = $("#value1").val();
+            var type1 = $("select:eq(1)").val();
+            var bool1 = 'must'
+            var key2 = $("select:eq(3)").val();
+            var value2 = $("#value2").val();
+            var type2 = $("select:eq(4)").val();
+            var bool2 = $("select:eq(2)").val();
+            var key3 = $("select:eq(6)").val();
+            var value3 = $("#value3").val();
+            var type3 = $("select:eq(7)").val();
+            var bool3 = $("select:eq(5)").val();
+            {#if (val.length >= 2) {#}
+            {#    //点击搜索按钮时，去重#}
+                {#KillRepeat(val);#}
+            {#    //去重后把数组存储到浏览器localStorage#}
+            {#    localStorage.search = searchArr;#}
+            {#    //然后再把搜索内容显示出来#}
+            {#    MapSearchArr();#}
+            {##}
+            window.location.href = 'http://127.0.0.1:8000/search/?key1='+key1+'&key2='+key2+'&key3='+key3+'$value1='+value1+'&value2='+value2+'&value3='+value3
+            +'&type1='+type1+'&type2='+type2+'&type3='+type3+'&bool1='+bool1+'&bool2='+bool2+'&bool3='+bool3
+            {#window.location.href = search_url + '?q=' + key1 +'&search_type=' + type1 + '&index=' + value1#}
         }
-        window.location.href = 'http://127.0.0.1:8000/search/?key1='+key1+'&key2='+key2+'&key3='+key3+'$value1='+value1+'&value2='+value2+'&value3='+value3
-        +'&type1='+type1+'&type2='+type2+'&type3='+type3+'&bool1='+bool1+'&bool2='+bool2+'&bool3='+bool3
-
-    }
     </script>
 
 <script>
