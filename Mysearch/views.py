@@ -115,6 +115,7 @@ class SearchView(View):
         all_total_num = 0
         """查询"""
         if type == "jingque":
+            base_url = 'http://127.0.0.1:8000/search/?q=' + key_words + '&search_type=' + type + '&index=' + key_index
             body = {
                         "query": {
                             "query_string": {
@@ -177,6 +178,7 @@ class SearchView(View):
             must_not_list=[]
             should_list=[]
             jingque_list=[]
+            base_url = 'http://127.0.0.1:8000/search/?search_type=gaoji&key1='+key1 +'&key2='+key2+'&key3='+key3+'&value1='+value1+'&value2='+value2+'&value3='+value3+'&type1='+type1+'&type2='+type2+'&type3='+type3+'&bool1='+bool1+'&bool2='+bool2+'&bool3='+bool3
             # url_base=""
             for i in range(0,3) :
                 if bool[i] == "must":
@@ -253,8 +255,9 @@ class SearchView(View):
                     }
                 }
             }
-
+            base_url = 'http://127.0.0.1:8000/search/?field='+field+'&search_type=quick'
         else:
+            base_url = 'http://127.0.0.1:8000/search/?q=' + key_words + '&search_type=' + type + '&index=' + key_index
             body={
                     "query": {
                         "query_string": {
@@ -305,6 +308,7 @@ class SearchView(View):
 
         end_time = datetime.now()
         last_seconds = (end_time - start_time).total_seconds()
+
         response_final = render(request, "result.html", {
             "page": page,
             "all_hits": hit_list,
@@ -314,7 +318,8 @@ class SearchView(View):
             "last_seconds": last_seconds,
             "topn_search": topn_search,
             "body": body,
-            "index": key_index
+            "index": key_index,
+            "base_url": base_url
         })
         """
         返回给前端数，并且在前端需要设置显示效果"""
