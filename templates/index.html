@@ -89,8 +89,7 @@
 					<option value ="regulations2">法律法规</option>
 					<option value ="buying_guides">选购指南</option>
 				</select>
-                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"
-                                   placeholder="请输入 ...">
+                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput" placeholder="请输入 ...">
                 <button type="button" class="subscribe_bt" onclick="add_search()"><img class="searchimg" src="{% static 'images/search.png'%}"></button>
 				<select class="selecbtn" id="type">
 					<option value ="mohu">模糊搜索</option>
@@ -200,32 +199,32 @@
         }
 
         // 搜索建议
-        $(function () {
-            $('.searchInput').bind(' input propertychange ', function () {
-                var searchText = $(this).val();
-                print(searchText)
-                var tmpHtml = ""
-                $.ajax({
-                    cache: false,
-                    type: 'get',
-                    dataType: 'json',
-                    url: suggest_url + "?s=" + searchText + "&s_type=GCC",
-                    async: true,
-                    success: function (data) {
-                        for (var i = 0; i < data.length; i++) {
-                            tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'
-                        }
-                        $(".dataList").html("")
-                        $(".dataList").append(tmpHtml);
-                        if (data.length == 0) {
-                            $('.dataList').hide()
-                        } else {
-                            $('.dataList').show()
-                        }
-                    }
-                });
-            });
-        })
+        {#$(function () {#}
+        {#    $('.searchInput').bind(' input propertychange ', function () {#}
+        {#        var searchText = $(this).val();#}
+        {#        print(searchText)#}
+        {#        var tmpHtml = ""#}
+        {#        $.ajax({#}
+        {#            cache: false,#}
+        {#            type: 'get',#}
+        {#            dataType: 'json',#}
+        {#            url: suggest_url + "?s=" + searchText + "&s_type=GCC",#}
+        {#            async: true,#}
+        {#            success: function (data) {#}
+        {#                for (var i = 0; i < data.length; i++) {#}
+        {#                    tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'#}
+        {#                }#}
+        {#                $(".dataList").html("")#}
+        {#                $(".dataList").append(tmpHtml);#}
+        {#                if (data.length == 0) {#}
+        {#                    $('.dataList').hide()#}
+        {#                } else {#}
+        {#                    $('.dataList').show()#}
+        {#                }#}
+        {#            }#}
+        {#        });#}
+        {#    });#}
+        {##}
 
         hideElement($('.dataList'), $('.searchInput'));
 
