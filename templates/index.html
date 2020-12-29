@@ -98,6 +98,10 @@
 				</select>
                 <a class="subscribe_btn" href="http://127.0.0.1:8000/gaoji/">高级搜索</a>
 		    </form>
+{#            <div class="am-u-md-offset-4 am-u-md-4">#}
+{#            <ul class="{% block suggest_list %}am-list am-list-border datalist{% endblock %}">#}
+{#            </ul>#}
+{#            </div>#}
 		    <div class="there_text" id="quick">
 				<div style="display:flex;">
 					<div style="width:15%;text-align:center;height:120px;line-height:120px;font-size: 18px;font-weight:normal;">保健功能</div>
@@ -202,15 +206,16 @@
         // 搜索建议
         $(function () {
             $('.searchInput').bind(' input propertychange ', function () {
-                var searchText = $(this).val();
+                var val = $(".searchInput").val();
+                var index = $("select:first").val();
                 var tmpHtml = ""
                 $.ajax({
                     cache: false,
                     type: 'get',
                     dataType: 'json',
-                    url: suggest_url + "?s=" + searchText + "&s_type=GCC",
+                    url: suggest_url + "?s=" + val + "&index=" + index,
                     async: true,
-                    success: function (data) {
+                    success: function (data) {  // 这里的data就是json格式的数据
                         for (var i = 0; i < data.length; i++) {
                             tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'
                         }
