@@ -133,28 +133,84 @@ class SearchView(View):
                         }
                     }
         elif type == "gaoji":
-            jingque_list = request.GET.get("jingque").split(',')
+            key=[]
+            value=[]
+            value_must = []
+            value_must_not =[]
+            value_should = []
+            mohu_list = []
+            type=[]
+            bool=[]
+            #key的取值是字段名
+            key1 = request.GET.get("key1")
+            key2 = request.GET.get("key2")
+            key3 = request.GET.get("key3")
+            key.append(key1)
+            key.append(key2)
+            key.append(key3)
+            #value取值为字段值
+            value1 = request.GET.get("value1")
+            value2 = request.GET.get("value2")
+            value3 = request.GET.get("value3")
+            value.append(value1)
+            value.append(value2)
+            value.append(value3)
+            # type取值为mohu或者jingque
+            type1 = request.GET.get("type1")
+            type2 = request.GET.get("type2")
+            type3 = request.GET.get("type3")
+            type.apend(type1)
+            type.apend(type2)
+            type.apend(type3)
+            #bool的取值是must,must_not,should
+            bool1 = request.GET.get("bool1")
+            bool2 = request.GET.get("bool2")
+            bool3 = request.GET.get("bool3")
+            bool.append(bool1)
+            bool.append(bool2)
+            bool.append(bool3)
+            must_list=[]
+            must_not_list=[]
+            should_list=[]
+            jingque_list=[]
+            # url_base=""
+            for i in range(0,3) :
+                if bool[i] == "must":
+                    must_list.append(key[i])
+                    value_must.append(value[i])
+                if bool[i] == "must_not":
+                    must_not_list.append(key[i])
+                    value_must_not.append(value[i])
+                if bool[i] == "should":
+                    should_list.append(key[i])
+                    value_should.append(value[i])
+                if type[i] == "jingque":
+                    jingque_list.append(key[i])
+                else:
+                    mohu_list.append(value[i])
 
-            def get_key_list(tiaojian):
+            def get_key_list(tiaojian,value_tiaojian):
                 key_list=[]
-                for i in request.GET.get(tiaojian).split(','):
+                num =0
+                for i in tiaojian:
                     if i in jingque_list:
-                        word = request.GET.get(i)
+                        # word = value_tiaojian[num]
                         key_dict = {
                             "match": {
                                 i:{
-                                    "query": word,
+                                    "query": value_tiaojian[num],
                                     "operator": "AND"
                                 }
                             }
                         }
                     else:
-                        key_dict = {"match": {i: request.GET.get(i)}}
+                        key_dict = {"match": {i:value_tiaojian[num]}}
                     key_list.append(key_dict)
+                    num += 1
                 return key_list
-            must_key = get_key_list("must")
-            should_key = get_key_list("should")
-            must_not_key = get_key_list("must_not")
+            must_key = get_key_list(must_list, value_must)
+            should_key = get_key_list(should_list, value_should)
+            must_not_key = get_key_list(must_not_list, value_must_not)
             body={
                 "query": {
                     "bool": {
