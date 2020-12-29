@@ -89,7 +89,9 @@
 					<option value ="regulations2">法律法规</option>
 					<option value ="buying_guides">选购指南</option>
 				</select>
-                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"
+{#                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"#}
+{#                                   placeholder="请输入 ...">#}
+                <input type="text" class="searchInput"
                                    placeholder="请输入 ...">
                 <button type="button" class="subscribe_bt" onclick="add_search()"><img class="searchimg" src="{% static 'images/search.png'%}"></button>
 				<select class="selecbtn" id="type">
@@ -128,7 +130,7 @@
                         <a href="http://127.0.0.1:8000/search/?field=调节肠道菌群&search_type=quick">调节肠道菌群&nbsp&nbsp&nbsp</a>
                         <a href="http://127.0.0.1:8000/search/?field=促进消化&search_type=quick">促进消化&nbsp&nbsp&nbsp</a>
                         <a href="http://127.0.0.1:8000/search/?field=通便&search_type=quick">通便&nbsp&nbsp&nbsp</a>
-                        <a href="http://127.0.0.1:8000/search/?field=辅助保护胃黏膜损伤&search_type=jingque">辅助保护胃黏膜损伤&nbsp&nbsp&nbsp</a>
+                        <a href="http://127.0.0.1:8000/search/?field=辅助保护胃黏膜损伤&search_type=quick">辅助保护胃黏膜损伤&nbsp&nbsp&nbsp</a>
                     </div>
 				</div>
 {#				<div style="display:flex;margin-top:10px;">#}
@@ -185,19 +187,19 @@
             }
         }
 
-        function MapSearchArr() {
-            var tmpHtml = "";
-            var arrLen = 0
-            if (searchArr.length >= 5) {
-                arrLen = 5
-            } else {
-                arrLen = searchArr.length
-            }
-            for (var i = 0; i < arrLen; i++) {
-                tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + searchArr[i] + '">' + searchArr[i] + '</a>'
-            }
-            $(".mysearch").html(tmpHtml);
-        }
+        {#function MapSearchArr() {#}
+        {#    var tmpHtml = "";#}
+        {#    var arrLen = 0#}
+        {#    if (searchArr.length >= 5) {#}
+        {#        arrLen = 5#}
+        {#    } else {#}
+        {#        arrLen = searchArr.length#}
+        {#    }#}
+        {#    for (var i = 0; i < arrLen; i++) {#}
+        {#        tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + searchArr[i] + '">' + searchArr[i] + '</a>'#}
+        {#    }#}
+        {#    $(".mysearch").html(tmpHtml);#}
+        {#}#}
 
         // 搜索建议
         $(function () {
@@ -253,7 +255,7 @@
         //如果没有，则定义searchArr为一个空的数组
         searchArr = [];
         //把存储的数据显示出来作为搜索历史
-        MapSearchArr();
+        {#MapSearchArr();#}
         }
 
         {#function add_search() {#}
@@ -280,10 +282,10 @@
             //去重后把数组存储到浏览器localStorage
             localStorage.search = searchArr;
             //然后再把搜索内容显示出来
-            MapSearchArr();
+            {#MapSearchArr();#}
         }
         window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index
-    }
+    }}
     </script>
 
 <script>
