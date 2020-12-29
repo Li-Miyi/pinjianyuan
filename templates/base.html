@@ -54,7 +54,7 @@
 					<option value ="regulations2">法律法规</option>
 					<option value ="buying_guides">选购指南</option>
 				</select>
-                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"
+                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput" id="keyword"
                                    placeholder="请输入 ...">
                 <button type="button" class="subscribe_bt" onclick="add_search()"><img class="searchimg" src="../static/images/search.png"></button>
 				<select class="selecbtn_base" id="type">
@@ -91,7 +91,7 @@
 			<!-- 分面 -->
 			<div class="facet" id="fecet_menu">
 				<ul class="layui-nav layui-nav-tree" lay-filter="test" id="gc1" >
-					<li class="layui-nav-item" id="0">
+					<li class="layui-nav-item" id="0" onclick="get_aggs(this);">
 					  <a class="" href="javascript:;" id="a0"></a>
 					  <dl class="layui-nav-child">
 						<dd><a href="javascript:;"><input type="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;移动模块</a></dd>
@@ -191,147 +191,83 @@
                 }
             });
         }
-</script>
-{#<script>#}
-{#    function add_search() {#}
-{#        var val = $(".searchInput").val();#}
-{#        var index = $("select:first").val();#}
-{#        var search_type = $("select:last").val();#}
-{#        if (val.length >= 2) {#}
-{#            //点击搜索按钮时，去重#}
-            {#KillRepeat(val);#}
-{#            //去重后把数组存储到浏览器localStorage#}
-{#            localStorage.search = searchArr;#}
-{#            //然后再把搜索内容显示出来#}
-{#            MapSearchArr();#}
-{#        }#}
-{#        window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index#}
-{#    }#}
-{#</script>#}
+    </script>
+    <script>
+        /*点击某索引的某字段 得到其聚合结果*/
+        function get_aggs(obj){
+            {#document.getElementById("0").style.display="none";#}
+            {#document.getElementById("1").style.display="none";#}
+            {#document.getElementById("2").style.display="none";#}
+            {#document.getElementById("3").style.display="none";#}
+            {#document.getElementById("4").style.display="none";#}
+            {#document.getElementById("5").style.display="none";#}
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:8000/facet/",
+                data: {
+                    index:"gcc",
+                    field:"",
+
+                },
+                success: function(data) { // 这里的data就是json格式的数据
+                    console.log(data);
+                    {#$.each(data, function(i) {#}
+                    {#    id = i.toString()#}
+                    {#    var aid = "a"+id#}
+                    {#    console.log(document.getElementById(id))#}
+                    {#    document.getElementById(aid).innerHTML=data[i];#}
+                    {#    document.getElementById(id).style.display="block";#}
+                    //});
+                },
+                error: function(xhr, type) {
+                }
+            });
+        }
+    </script>
+
 
     <script src="{% static 'js/jquery.min.js'%}"></script>
     <script src="{% static 'js/popper.min.js'%}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+{#    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>#}
     <script src="{% static 'js/jquery-3.0.0.min.js'%}"></script>
     <script src="{% static 'js/plugin.js'%}"></script>
     <!-- sidebar -->
     <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
-    <script src="{% static 'js/custom.js'%}"></script>
+{#    <script src="{% static 'js/custom.js'%}"></script> 这个不能要#}
     <!-- javascript -->
-    <script src="{% static 'js/owl.carousel.js'%}"></script>
-    <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>
+{#    <script src="{% static 'js/owl.carousel.js'%}"></script>#}
+{#    <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>#}
     <script type="text/javascript">
         var search_url = "{% url 'search' %}"
         var suggest_url = "{% url 'suggest' %}"
 
-        function removeByValue(arr, val) {
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i] == val) {
-                    arr.splice(i, 1);
-                    break;
-                }
+        var cpLock = false;
+        $('#keyword').on('compositionstart', function () {
+            cpLock = true;
+            console.log("不搜索")
+        });
+        $('#keyword').on('compositionend', function () {
+            cpLock = false;
+            console.log("汉字搜索");
+            add_search();
+        });
+        $('#keyword').on('input', function () {
+            if (!cpLock) {
+                console.log("字母搜索");
+                add_search();
             }
+        });
+
+        function add_search() {
+            console.log("sf")
+            var val = $(".searchInput").val();
+            var index = $("select:first").val();
+            var search_type = $("select:last").val();
+            window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index
         }
-
-        function MapSearchArr() {
-            var tmpHtml = "";
-            var arrLen = 0
-            if (searchArr.length >= 5) {
-                arrLen = 5
-            } else {
-                arrLen = searchArr.length
-            }
-            for (var i = 0; i < arrLen; i++) {
-                tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + searchArr[i] + '">' + searchArr[i] + '</a>'
-            }
-            $(".mysearch").html(tmpHtml);
-        }
-
-        // 搜索建议
-        {#$(function () {#}
-        {#    $('.searchInput').bind(' input propertychange ', function () {#}
-        {#        var searchText = $(this).val();#}
-        {#        print(searchText)#}
-        {#        var tmpHtml = ""#}
-        {#        $.ajax({#}
-        {#            cache: false,#}
-        {#            type: 'get',#}
-        {#            dataType: 'json',#}
-        {#            url: suggest_url + "?s=" + searchText + "&s_type=GCC",#}
-        {#            async: true,#}
-        {#            success: function (data) {#}
-        {#                for (var i = 0; i < data.length; i++) {#}
-        {#                    tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'#}
-        {#                }#}
-        {#                $(".dataList").html("")#}
-        {#                $(".dataList").append(tmpHtml);#}
-        {#                if (data.length == 0) {#}
-        {#                    $('.dataList').hide()#}
-        {#                } else {#}
-        {#                    $('.dataList').show()#}
-        {#                }#}
-        {#            }#}
-        {#        });#}
-        {#    });#}
-        {##}
-
-        hideElement($('.dataList'), $('.searchInput'));
-
-        var searchArr; //定义一个search的，判断浏览器有无数据存储（搜索历史）
-        if (localStorage.search) {
-        //如果有，转换成 数组的形式存放到searchArr的数组里（localStorage以字符串的形式存储，所以要把它转换成数组的形式）
-        searchArr = localStorage.search.split(",")
-        } else {
-        //如果没有，则定义searchArr为一个空的数组
-        searchArr = [];
-        //把存储的数据显示出来作为搜索历史
-        MapSearchArr();
-        }
-
-        {#function add_search() {#}
-        {#    var keyword = $(".searchInput").val();#}
-        {#    var index = $("#index").val();#}
-        {#    var type = $("#type").val();#}
-        {#    if (keyword.length >= 2) {#}
-        {#        //点击搜索按钮时，去重#}
-        {#        KillRepeat(keyword);#}
-        {#        //去重后把数组存储到浏览器localStorage#}
-        {#        localStorage.search = searchArr;#}
-        {#        //然后再把搜索内容显示出来#}
-        {#        MapSearchArr();#}
-        {#    }#}
-            {#window.location.href = search_url+'?q=a'+keyword#}
-        {#    window.location.href = search_url+'?q='+keyword#}
-    function add_search() {
-        var val = $(".searchInput").val();
-        var index = $("select:first").val();
-        var search_type = $("select:last").val();
-        if (val.length >= 2) {
-            //点击搜索按钮时，去重
-            {#KillRepeat(val);#}
-            //去重后把数组存储到浏览器localStorage
-            localStorage.search = searchArr;
-            //然后再把搜索内容显示出来
-            MapSearchArr();
-        }
-        window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index
-    }
     </script>
 
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
+
 
 </body>
 
