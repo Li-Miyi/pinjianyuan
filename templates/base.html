@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
+{% load static %}
 <head>
 <title>品健源</title>
 
@@ -134,9 +135,9 @@
 
 			<!-- 搜索结果 -->
 			<div class="result">
-				{% block main %}
+				{% block result %}
 					这是个空白页，请在此处加入您的代码！
-				{% endblock %}
+				{% endblock result %}
 			</div>
 		</div>
 	</div>
@@ -191,7 +192,146 @@
             });
         }
 </script>
+{#<script>#}
+{#    function add_search() {#}
+{#        var val = $(".searchInput").val();#}
+{#        var index = $("select:first").val();#}
+{#        var search_type = $("select:last").val();#}
+{#        if (val.length >= 2) {#}
+{#            //点击搜索按钮时，去重#}
+            {#KillRepeat(val);#}
+{#            //去重后把数组存储到浏览器localStorage#}
+{#            localStorage.search = searchArr;#}
+{#            //然后再把搜索内容显示出来#}
+{#            MapSearchArr();#}
+{#        }#}
+{#        window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index#}
+{#    }#}
+{#</script>#}
 
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js'%}"></script>
+    <script src="{% static 'js/plugin.js'%}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+    <!-- javascript -->
+    <script src="{% static 'js/owl.carousel.js'%}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js'%}"></script>
+    <script type="text/javascript">
+        var search_url = "{% url 'search' %}"
+        var suggest_url = "{% url 'suggest' %}"
+
+        function removeByValue(arr, val) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val) {
+                    arr.splice(i, 1);
+                    break;
+                }
+            }
+        }
+
+        function MapSearchArr() {
+            var tmpHtml = "";
+            var arrLen = 0
+            if (searchArr.length >= 5) {
+                arrLen = 5
+            } else {
+                arrLen = searchArr.length
+            }
+            for (var i = 0; i < arrLen; i++) {
+                tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + searchArr[i] + '">' + searchArr[i] + '</a>'
+            }
+            $(".mysearch").html(tmpHtml);
+        }
+
+        // 搜索建议
+        {#$(function () {#}
+        {#    $('.searchInput').bind(' input propertychange ', function () {#}
+        {#        var searchText = $(this).val();#}
+        {#        print(searchText)#}
+        {#        var tmpHtml = ""#}
+        {#        $.ajax({#}
+        {#            cache: false,#}
+        {#            type: 'get',#}
+        {#            dataType: 'json',#}
+        {#            url: suggest_url + "?s=" + searchText + "&s_type=GCC",#}
+        {#            async: true,#}
+        {#            success: function (data) {#}
+        {#                for (var i = 0; i < data.length; i++) {#}
+        {#                    tmpHtml += '<a class="list-group-item text-left" href="' + search_url + '?q=' + data[i] + '">' + data[i] + '</a>'#}
+        {#                }#}
+        {#                $(".dataList").html("")#}
+        {#                $(".dataList").append(tmpHtml);#}
+        {#                if (data.length == 0) {#}
+        {#                    $('.dataList').hide()#}
+        {#                } else {#}
+        {#                    $('.dataList').show()#}
+        {#                }#}
+        {#            }#}
+        {#        });#}
+        {#    });#}
+        {##}
+
+        hideElement($('.dataList'), $('.searchInput'));
+
+        var searchArr; //定义一个search的，判断浏览器有无数据存储（搜索历史）
+        if (localStorage.search) {
+        //如果有，转换成 数组的形式存放到searchArr的数组里（localStorage以字符串的形式存储，所以要把它转换成数组的形式）
+        searchArr = localStorage.search.split(",")
+        } else {
+        //如果没有，则定义searchArr为一个空的数组
+        searchArr = [];
+        //把存储的数据显示出来作为搜索历史
+        MapSearchArr();
+        }
+
+        {#function add_search() {#}
+        {#    var keyword = $(".searchInput").val();#}
+        {#    var index = $("#index").val();#}
+        {#    var type = $("#type").val();#}
+        {#    if (keyword.length >= 2) {#}
+        {#        //点击搜索按钮时，去重#}
+        {#        KillRepeat(keyword);#}
+        {#        //去重后把数组存储到浏览器localStorage#}
+        {#        localStorage.search = searchArr;#}
+        {#        //然后再把搜索内容显示出来#}
+        {#        MapSearchArr();#}
+        {#    }#}
+            {#window.location.href = search_url+'?q=a'+keyword#}
+        {#    window.location.href = search_url+'?q='+keyword#}
+    function add_search() {
+        var val = $(".searchInput").val();
+        var index = $("select:first").val();
+        var search_type = $("select:last").val();
+        if (val.length >= 2) {
+            //点击搜索按钮时，去重
+            {#KillRepeat(val);#}
+            //去重后把数组存储到浏览器localStorage
+            localStorage.search = searchArr;
+            //然后再把搜索内容显示出来
+            MapSearchArr();
+        }
+        window.location.href = search_url + '?q=' + val +'&search_type=' + search_type + '&index=' + index
+    }
+    </script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 
 </body>
 
