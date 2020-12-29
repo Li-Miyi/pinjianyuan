@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿{% extends 'base.html' %}
+<!DOCTYPE html>
 <html lang="en-US">
 {% load static %}
 <head>
@@ -35,7 +36,7 @@
 
 
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/img/favicon.ico"
+    <link rel="shortcut icon" href="../static/img/logo_top.png"
           type="image/x-icon">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://dongfei.oss-cn-shanghai.aliyuncs.com/static/css/bootstrap.css">
@@ -65,6 +66,7 @@
 
 
 </head>
+{% block result %}
 <body id="top" class="stickyfooter header-fixed">
 
 <div class="animsition">
@@ -77,14 +79,14 @@
                         <a href="{% url 'index' %}" class="logo clearfix">品健源</a>
                         <a href="http://127.0.0.1:8000/static/img/logo.png"></a>
                     </div>
-
                 </div>
             </div>
             <!-- End header-container -->
         </header>
 
-        <main>
+        <!-- End section -->
 
+        <main>
             <div class="section">
                 <div class="container">
 
@@ -111,47 +113,73 @@
                                                             <tr><td><font size="5"><b>{% autoescape off %}{{ hit.bjspName | safe }}{% endautoescape %}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<b>批准文号：</b>{{ hit.productID | safe}}</td></tr>
                                                             <tr>
                                                             <td>
-                                                                <b>功效：</b>{{ hit.naturalProgression | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<b>原料：</b>{{ hit.productIngredients | safe }}
+                                                                <b>功效：</b>{{ hit.naturalProgression | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br><br> {#  <b>原料：</b>{{ hit.productIngredients. | safe }} #}
                                                                 <b>适宜人群：</b>{{ hit.targetPopulation | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>不适宜人群：</b>{{ hit.notargetPopulation | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>使用方法：</b>{{ hit.useMethods | safe}}<br><br>
                                                                 <b>产品规格：</b>{{ hit.productSpecifications | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<b>保质期：</b>{{ hit.dateValid | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>生产商：</b>{{ hit.applicantName | safe}}&nbsp;&nbsp;&nbsp;&nbsp;<b>厂商地址：</b>{{ hit.applicantAddress | safe}}<br><br>
                                                             </td>
                                                             </tr>
                                                         {% elif index == "buying_guides" %}
                                                             {% if hit.guideauthor == none %}
-                                                                <font size="5"><b>{% autoescape off %}{{ hit.title | safe }}{% endautoescape %}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                                <font size="5"><b>{{ hit.title | safe }}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
                                                                 <b>内容：</b>
-                                                                {% for row in hit.content %}
-                                                                    {{ row | safe}}
-                                                                {% endfor %}
+                                                                {% for row in hit.content %}{{ row | safe}}{% endfor %}
                                                             {% else %}
-                                                                <font size="5"><b>{% autoescape off %}{{ hit.title | safe }}{% endautoescape %}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ hit.guideauthor | safe}}</b><br><br>
+                                                                <font size="5"><b>{{ hit.title | safe }}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ hit.guideauthor | safe}}</b><br><br>
                                                                 <b>内容：</b>
-                                                                {% for row in hit.content %}
-                                                                    {{ row | safe}}
-                                                                {% endfor %}
+                                                                {% for row in hit.content %}{{ row | safe}}{% endfor %}
                                                             {% endif %}
-
+                                                        {% elif index == "jkkk" %}
+                                                            <font size="5"><b>{{ hit.bjspChName | safe}}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                            <font size="2"><b>英文名：</b>{{ hit.bjspEnName |safe }}&nbsp;&nbsp;&nbsp;&nbsp;<b>产品id：</b>{{ hit.productID | safe }}</font><br><br>
+                                                            {% if hit.naturalProgression != none %}<b>功能：</b>{{ hit.naturalProgression | safe }}&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+                                                            {% if hit.targetPopulation != none %}<b>适宜人群：</b>{{ hit.targetPopulation | safe }}&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+                                                            {% if hit.notargetPopulation != none %}<b>不适宜人群：</b>{{ hit.notargetPopulation | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.productIngredients != none %}<b>原料：</b>{{ hit.productIngredients | safe }}&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+                                                            {% if hit.activeIngredient != none %}<b>有效成分：</b>{{ hit.activeIngredient | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.dateValid != none %}<b>保质期：</b>{{ hit.dateValid | safe }}{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            {% if hit.pizhunDate != none %}<b>批准时间：</b>{{ hit.pizhunDate | safe }}{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            {% if hit.expirationDate != none %}<b>过期日期：</b>{{ hit.expirationDate | safe }}{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;{% if hit.productSpecifications != none %}<b>容量：</b>{{ hit.productSpecifications | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.storageMethod != none %}<b>存储方法：</b>{{ hit.storageMethod | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.country != none %}<b>所属国家：</b>{{ hit.country | safe }}&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+                                                            {% if hit.manufacturerChName != none %}<b>生产商：</b>{{ hit.manufacturerChName | safe }}&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+                                                            {% if hit.manufacturerEnName != none %}<b>生产商英文名：{{ hit.manufacturerEnName | safe }}</b>&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+                                                            {% if hit.applicantName != none %}<b>生产机构：</b>{{ hit.applicantName | safe }}&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}
+                                                            {% if hit.applicantAddress != none %}<b>生产机构地址：</b>{{ hit.applicantAddress | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.warning != none %}<b>注意事项：</b>{{ hit.warning | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                        {% elif index == "rawmaterial" %}
+                                                            <font size="5"><b>{{ hit.RawMaterialName | safe}}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{ hit.image | safe}}" alt="无图片" id="no_image" width="10%" height="auto">&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                            <font size="2"><b>英文名：</b>{{ hit.RawMaterialEnglishName |safe }}</font>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                            {% if hit.RawMaterialAlternateName != none %}<b>别名：</b>{{ hit.RawMaterialAlternateName | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.RawMaterialFunction != none %}<b>功能：</b>{{ hit.RawMaterialFunction | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.activeIngredient != none %}<b>有效成分：</b>{{ hit.activeIngredient | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.description != none %}<b>详细介绍：</b>{{ hit.description | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.character != none %}<b>特征：</b>{{ hit.character | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.storagePractice != none %}<b>存储方法：</b>{{ hit.storagePractice | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                            {% if hit.tropismOfTaste != none %}<b>性味归经：</b>{{ hit.tropismOfTaste | safe }}&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endif %}
+                                                        {% elif index == "other_ingredient" %}
+                                                            <font size="5"><b>{{ hit.functional_ingredients_class | safe }}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                            <b>介绍：</b>{{ hit.class_description | safe }}<br><br>
+                                                            <b>常见辅料：</b>
+                                                            <br>{% for row in hit.functional_ingresients %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>名称：</b>{{ row.functional_ingredient_name | safe }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>功效：</b>{{ row.physiologic_function | safe }}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% if row.physicochemical_properties != none or row.physicochemical_properties != ""%}<b>存在形式：</b>{{ row.physicochemical_properties | safe }}<br>{% endif %}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% if row.existence != none and row.applications != none %}<b>应用：</b>{{ row.existence | safe }}{{ row.applications | safe }}{% endif %}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>{% endfor %}<br>
+                                                        {% elif index == "nutrients" %}
+                                                            <font size="5"><b>营养素：</b>{{ hit.nutrient_name | safe }}</font>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                            {% for row in hit.chemical_compound %}<b>化合物名称：</b>{{ row.chemical_name }}&nbsp;&nbsp;&nbsp;&nbsp;<b>标准：</b>{{ row.criteria }}&nbsp;&nbsp;&nbsp;&nbsp;{{ row.application }}{{ row.efficacy }}{{ row.suit }}{{ row.suit.suitable_population }}{{ row.suit.minimum }}{{ row.suit.maximum }}{{ row.suit.unit }}{% endfor %}<br><br>
+                                                            <b>使用意见：</b>{{ hit.opinions | safe }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><br><br>功能：</b>{{ hit.physiologic_function | safe }}<br><br>
+                                                        {% elif index == "regulations2" %}
+                                                            <font size="5"><b>{{ hit.title | safe }}</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                                                            <b>批准字号：</b>{{ hit.documentNumber | safe }}<br><br>
+                                                            <b>发布时间：</b>{{ hit.issueDate | safe }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>发布者：</b>{{ hit.issuer | safe }}<br><br>
+                                                            <b>生效日期：</b>{{ hit.effectiveDate | safe }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% if hit.expirationDate != none %}<b>失效日期：</b>{{ hit.expirationDate | safe }}{% endif %}<br><br>
+                                                            <b>内容：</b>
+                                                                {% for row in hit.content %}{{ row | safe}}{% endfor %}
                                                         {% endif %}
                                                     </table>
                                                     <hr>
                                                 </div>
                                             {% endfor %}
-{#                                            <br>保健食品名称：{% autoescape off %}{{ hit.bjspName }}{% endautoescape %}<br><br>#}
-{#                                            批准文号：{{ hit.productID }}<br><br>#}
-{#                                            功效：{{ hit.naturalProgression }}<br><br>#}
-{#                                            原料：{{ hit.productIngredients }}<br><br>#}
-{#                                            适宜人群：{{ hit.targetPopulation }}<br><br>#}
-{#                                            不适宜人群：{{ hit.notargetPopulation }}<br><br>#}
-{#                                            使用方法：{{ hit.useMethods }}<br><br>#}
-{#                                            产品规格：{{ hit.productSpecifications }}<br><br>#}
-{#                                            保质期：{{ hit.dateValid }}<br><br>#}
-{#                                            生产商：{{ hit.applicantName }}<br><br>#}
-{#                                            厂商地址：{{ hit.applicantAddress }}#}
                                         </h6>
                                     </div>
                                 </article>
-
-
                         </div>
 
 
@@ -164,13 +192,12 @@
                 </div>
             </div>
 
-
-
         </main>
     <br>
     </div>
 </div>
 </body>
+{% endblock result %}
 <!-- End animsition -->
 <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/libs.js' %}"></script>
@@ -194,6 +221,7 @@
 
 <script type="text/javascript">
     var search_url = "{% url 'search' %}"
+
 
     $('.searchList').on('click', '.searchItem', function () {
         $('.searchList .searchItem').removeClass('current');
@@ -241,6 +269,7 @@
     });
 
     var key_words = "{{ key_words }}"
+    var base_url = "{{ base_url }}"
 
     //分页
     $(".pagination").pagination({{ total_nums }}, {
@@ -260,17 +289,17 @@
 
     function getPrevPage() {
         if (page_id <= 1) {
-            window.location.href = search_url + '?q=' + key_words + '&p=' + page_id
+            window.location.href = base_url + '&p=' + page_id
         } else {
-            window.location.href = search_url + '?q=' + key_words + '&p=' + (page_id - 1)
+            window.location.href = base_url + '&p=' + (page_id - 1)
         }
     }
 
     function getNextPage() {
         if (page_id >= total_page) {
-            window.location.href = search_url + '?q=' + key_words + '&p=' + page_id
+            window.location.href = base_url + '&p=' + page_id
         } else {
-            window.location.href = search_url + '?q=' + key_words + '&p=' + (page_id + 1)
+            window.location.href = base_url + '&p=' + (page_id + 1)
         }
     }
 
@@ -287,7 +316,7 @@
 
     function setHeight() {
         if ($('#container').outerHeight() < $(window).height()) {
-            $('#container').height($().height() - 33);
+            $('#container').height($(window).height() - 33);
         }
     }
 </script>
