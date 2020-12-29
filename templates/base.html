@@ -17,9 +17,9 @@
 
 <!-- Theme CSS -->  
 <!-- <link id="theme-style" rel="stylesheet" href="../static/assets/css/theme.css"> -->
-<link id="theme-style" rel="stylesheet" href="../static/assets/css/seach.css">
+<link id="theme-style" rel="stylesheet" href="../static/assets/css/search.css">
 <link rel="stylesheet" href="../static/assets/css/layui.css">
-
+{#<link rel="stylesheet" href="../static/css/style1.css">#}
 
 
 
@@ -29,20 +29,44 @@
 
 <body style = "background-image: url('../static/assets/images/background.png'); z-index:0;">
 
-	<header class="header fixed-top">	    
+	<header class="header fixed-top">
 		<div class="branding docs-branding">
 		</div>
 	</header>
 
 	<!-- 搜索框 -->
-	<div style="text-align: center; margin-left:33%;">
-		<div style=" width:1px; height:1px; margin-left: 0;float: left;">
-			<img src="../static/assets/images/logo.png" width="192" height="108">
+	<div class="search_bar_logo_base">
+		<div class="logo_base">
+            <a href="http://127.0.0.1:8000/"><img src="../static/assets/images/logo.png" width="192px" height="108px"></a>
 		</div>
-		<div class="box_main" style="float: left; margin-left:200px;">
-			<input type="" class="email_bt" placeholder="请输入关键词" name="">
-			<button class="subscribe_bt"><a href="#"><img class="searchimg" src="../static/assets/images/search.png"></a></button>
-		</div>
+        <div class="search_bar_base">
+            <form class="box_main">
+                <select class="selecbtn1_base" id="index">
+{#					<option value ="shipin">保健食品</option>#}
+{#					<option value ="chengfen">原料成分</option>#}
+                    <option value ="gcc">国产</option>
+                    <option value ="jkkk">进口</option>
+                    <option value ="rawmaterial">原料</option>
+                    <option value ="ingredients">辅料</option>
+                    <option value ="nutrients">营养素</option>
+                    <option value ="other_nutrients">其他成分</option>
+					<option value ="regulations2">法律法规</option>
+					<option value ="buying_guides">选购指南</option>
+				</select>
+                <input type="text" onkeydown="if(event.keyCode==13)return false;" class="searchInput"
+                                   placeholder="请输入 ...">
+                <button type="button" class="subscribe_bt" onclick="add_search()"><img class="searchimg" src="../static/images/search.png"></button>
+				<select class="selecbtn_base" id="type">
+					<option value ="mohu">模糊搜索</option>
+					<option value ="jingque">精确搜索</option>
+				</select>
+                <a class="subscribe_btn_base" href="http://127.0.0.1:8000/gaoji/">高级搜索</a>
+		    </form>
+        </div>
+{#		<div class="box_main" style="float: left; margin-left:200px;">#}
+{#			<input type="" class="email_bt" placeholder="请输入关键词" name="">#}
+{#			<button class="subscribe_bt"><a href="#"><img class="searchimg" src="../static/assets/images/search.png"></a></button>#}
+{#		</div>#}
 	</div>
 	
 	<!-- 主体内容 -->

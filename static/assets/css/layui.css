@@ -1041,7 +1041,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-nav-tree .layui-nav-child{background: none; color: #fff;}
 .layui-nav-tree .layui-nav-more{right: 10px;}
 
-.layui-nav-itemed>.layui-nav-child{display: block; padding: 0; background-color: rgba(255, 255, 255) !important;} 
+.layui-nav-itemed>.layui-nav-child{display: block; padding: 0; background-color: rgba(255, 255, 255, 0) !important;}
 .layui-nav-itemed>.layui-nav-child>.layui-this>.layui-nav-child{display: block;}
 
 /* 侧边 */.layui-nav-side{position: fixed; top: 0; bottom: 0; left: 0; overflow-x: hidden; z-index: 999;}
