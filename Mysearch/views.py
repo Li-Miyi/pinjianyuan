@@ -320,7 +320,9 @@ class SearchView(View):
             "body": body,
             "index": key_index,
             "base_url": base_url,
-            "q":key_words
+            "q":key_words,
+            "index":key_index,
+            "search_type":type
         })
         """
         返回给前端数，并且在前端需要设置显示效果"""
